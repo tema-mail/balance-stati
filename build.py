@@ -302,8 +302,14 @@ def main():
             (site / f"{meta['slug']}.html").write_text(page(meta, p1, p2, blocks, n), encoding="utf8")
             (site / f"{meta['slug']}.json").write_text(json.dumps(dict(p1=p1, p2=p2), ensure_ascii=False), encoding="utf8")
     if not only_lint:
-        (site / "index.html").write_text(index(items), encoding="utf8")
+        status = (ROOT / "docs/status.html").read_text(encoding="utf8") if (ROOT / "docs/status.html").exists() else ""
+        (site / "index.html").write_text(index(items).replace("<!--STATUS-->", status), encoding="utf8")
         (site / "theme.css").write_text((ROOT / "theme/custom.css").read_text(encoding="utf8"), encoding="utf8")
+        doc = (ROOT / "docs/instrukciya-2026-11-05.md").read_text(encoding="utf8")
+        (site / "instrukciya.html").write_text('<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">'
+            '<meta name="viewport" content="width=device-width,initial-scale=1"><title>Balance: инструкция</title></head>'
+            '<body style="max-width:1000px;margin:0 auto;padding:20px"><p><a href="index.html">← Все статьи</a></p>'
+            f'<pre style="white-space:pre-wrap;font:15px/1.5 -apple-system,Arial,sans-serif">{html.escape(doc)}</pre></body></html>', encoding="utf8")
     print(f"Итого: {len(files)} файлов, с ошибками {bad}")
     return 1 if bad else 0
 
