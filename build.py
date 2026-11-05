@@ -272,10 +272,10 @@ def index(items):
         rows += (f'<tr><td>{m["date"][:5]}</td><td>{c["name"]}</td><td><a href="{m["slug"]}.html">{html.escape(m["card"])}</a></td>'
                  f'<td>{html.escape(m["query"])}</td><td>{n}</td></tr>')
     return f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Balance: 14 статей</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Balance: статьи на ноябрь</title>
 <style>body{{font:16px/1.5 -apple-system,Arial,sans-serif;max-width:1000px;margin:0 auto;padding:20px;color:#111}}
 table{{border-collapse:collapse;width:100%}}th,td{{border-bottom:1px solid #ddd;padding:8px;text-align:left}}a{{color:#06c}}</style></head><body>
-<h1>Balance: 14 статей на 06–19.11.2026</h1>
+<h1>Balance: 21 статья для сайта на 06–12.11 и 7 для Дзена на 13–19.11</h1>
 <!--STATUS-->
 <table><thead><tr><th>Дата</th><th>Клуб</th><th>Статья</th><th>Запрос</th><th>Слов</th></tr></thead><tbody>{rows}</tbody></table>
 <p><a href="instrukciya.html">Инструкция</a></p></body></html>"""
