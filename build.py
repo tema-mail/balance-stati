@@ -301,6 +301,7 @@ def main():
                 assert part.count("<div") == part.count("</div>"), f.name
             (site / f"{meta['slug']}.html").write_text(page(meta, p1, p2, blocks, n), encoding="utf8")
             (site / f"{meta['slug']}.json").write_text(json.dumps(dict(p1=p1, p2=p2), ensure_ascii=False), encoding="utf8")
+    items.sort(key=lambda it: (it[0].get("date", "")[:10], it[0].get("date", "")[11:]))
     if not only_lint:
         status = (ROOT / "docs/status.html").read_text(encoding="utf8") if (ROOT / "docs/status.html").exists() else ""
         (site / "index.html").write_text(index(items).replace("<!--STATUS-->", status), encoding="utf8")
