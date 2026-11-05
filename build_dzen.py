@@ -44,15 +44,15 @@ def page(m, blocks, n):
     slug, parts, kit = m["slug"], [], []
     for b in blocks:
         if b.startswith("{img"):
-            i = b[4]; u = f"{BASE}img/{slug}-{i}.jpg"
-            parts.append(f'<p class="pic"><img src="img/{slug}-{i}.jpg" alt=""></p>')
+            i = b[4]; u = f"{BASE}img/dzen-{slug}-{i}.jpg"
+            parts.append(f'<p class="pic"><img src="img/dzen-{slug}-{i}.jpg" alt=""></p>')
             kit.append(f'<li><a href="{u}" download>Скачать</a> · <button onclick="navigator.clipboard.writeText(\'{u}\')">Ссылка</button></li>')
         elif b.startswith("## "):
             parts.append(f"<h2>{inline(b[3:])}</h2>")
         else:
             parts.append(f"<p>{inline(' '.join(b.split()))}</p>")
     body = "".join(parts)
-    cover = f"{BASE}img/{slug}-0.jpg"
+    cover = f"{BASE}img/dzen-{slug}-0.jpg"
     return f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(m['title'])}: Дзен</title>
 <style>body{{font:18px/1.55 -apple-system,Arial,sans-serif;max-width:760px;margin:0 auto;padding:20px;color:#111}}img{{max-width:100%;border-radius:8px}}
@@ -63,7 +63,7 @@ def page(m, blocks, n):
 <button id="c" onclick="copyBody()">2. Скопировать текст</button><br>
 <b>3. Обложка:</b> <a href="{cover}" download>скачать</a> · <button onclick="navigator.clipboard.writeText('{cover}')">ссылка</button>
 <br><b>4. Картинки в тексте</b> (места отмечены ниже, вставить по ссылке или с компьютера):<ol style="margin:4px 0">{''.join(kit)}</ol></div>
-<h1 id="t">{html.escape(m['title'])}</h1><p class="cover"><img src="img/{slug}-0.jpg" alt=""></p><div id="b">{body}</div>
+<h1 id="t">{html.escape(m['title'])}</h1><p class="cover"><img src="img/dzen-{slug}-0.jpg" alt=""></p><div id="b">{body}</div>
 <script>async function copyBody(){{const d=document.getElementById('b').cloneNode(true);d.querySelectorAll('.pic').forEach(p=>p.remove());
 const h=d.innerHTML;await navigator.clipboard.write([new ClipboardItem({{'text/html':new Blob([h],{{type:'text/html'}}),'text/plain':new Blob([d.innerText],{{type:'text/plain'}})}})]);
 document.getElementById('c').textContent='Скопировано';}}</script></body></html>"""
