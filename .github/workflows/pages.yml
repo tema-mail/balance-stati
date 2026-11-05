@@ -15,7 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 build.py
-      - run: printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
+      - run: |
+          printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
