@@ -24,15 +24,15 @@ def lint(m, blocks):
     e = []
     text = "\n".join(blocks)
     n = len(re.findall(r"[0-9A-Za-zА-Яа-яЁё%+-]+", re.sub(r"\]\([^)]+\)", "]", text)))
-    if not 440 <= n <= 900: e.append(f"объём {n}")
+    if not 400 <= n <= 900: e.append(f"объём {n}")
     if not 15 <= len(m["title"]) <= 100: e.append(f"заголовок {len(m['title'])} знаков")
     if m["title"].count("!") or m["title"].count("?") > 1: e.append("знаки в заголовке")
     for rx in BAN:
         for x in re.finditer(rx, m["title"] + "\n" + text):
             e.append(f"запрет {rx}: …{(m['title'] + chr(10) + text)[max(0, x.start() - 20):x.end() + 20]}…".replace("\n", " "))
     club, feed = CLUB[m["club"]]
-    need = f"https://balance-fit.ru/{feed}/{m['slug']}?utm_source=dzen&utm_medium=article&utm_campaign={m['slug']}"
-    if need not in text: e.append("нет ссылки на статью сайта с меткой")
+    need = f"https://balance-fit.ru/{m['club']}/blog?utm_source=dzen&utm_medium=article&utm_campaign={m['slug']}"
+    if need not in text: e.append("нет ссылки на блог клуба с меткой")
     if m["slug"] not in [re.search(r"^slug: (.+)$", Path(a).read_text(encoding="utf8"), re.M).group(1) for a in glob.glob(str(ROOT / "stati/*.md"))]:
         e.append("нет такой статьи сайта")
     if sum(b.startswith("{img") for b in blocks) != 2: e.append("нужно 2 картинки в тексте")

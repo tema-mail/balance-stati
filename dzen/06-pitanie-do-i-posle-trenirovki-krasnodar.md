@@ -37,4 +37,4 @@ title: Что съесть до зала и после него без фана�
 
 Простые записи в телефоне быстро покажут, откуда на самом деле берутся лишние перекусы. Часто это не вечерний ужин, а печенье в офисе в четыре часа дня. Поставьте в ящик стола орехи или яблоко, и послеобеденный голод станет проще.
 
-Мы в Краснодаре, в клубе Balance Абрикосово на ул. им. Героя Георгия Бочарникова, 4, стр. Б. В Balance кафе у всех блюд расписаны КБЖУ, и считать в уме не приходится. Больше примеров и ответы на частые вопросы собрали в [статье на сайте клуба](https://balance-fit.ru/abricosovo/blog/pitanie-do-i-posle-trenirovki-krasnodar?utm_source=dzen&utm_medium=article&utm_campaign=pitanie-do-i-posle-trenirovki-krasnodar).
+Мы в Краснодаре, в клубе Balance Абрикосово на ул. им. Героя Георгия Бочарникова, 4, стр. Б. В Balance кафе у всех блюд расписаны КБЖУ, и считать в уме не приходится. Другие материалы – в [блоге клуба](https://balance-fit.ru/abricosovo/blog?utm_source=dzen&utm_medium=article&utm_campaign=pitanie-do-i-posle-trenirovki-krasnodar).
