@@ -46,7 +46,7 @@ def page(m, blocks, n):
         if b.startswith("{img"):
             i = b[4]; u = f"{BASE}img/dzen-{slug}-{i}.jpg"
             parts.append(f'<p class="pic"><img src="img/dzen-{slug}-{i}.jpg" alt=""></p>')
-            kit.append(f'<li><a href="{u}" download>Скачать</a> · <button onclick="navigator.clipboard.writeText(\'{u}\')">Ссылка</button></li>')
+            kit.append(f'<li><a href="{u}" download>Скачать картинку</a> · <button onclick="navigator.clipboard.writeText(\'{u}\')">Ссылка</button></li>')
         elif b.startswith("## "):
             parts.append(f"<h2>{inline(b[3:])}</h2>")
         else:
@@ -56,17 +56,19 @@ def page(m, blocks, n):
     return f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(m['title'])}: Дзен</title>
 <style>body{{font:18px/1.55 -apple-system,Arial,sans-serif;max-width:760px;margin:0 auto;padding:20px;color:#111}}img{{max-width:100%;border-radius:8px}}
-.kit{{background:#f3f3f3;padding:14px 16px;border-radius:10px;font-size:15px}}button{{padding:8px 12px;margin:3px 6px 3px 0;cursor:pointer}}h2{{margin-top:1.4em}}</style></head><body>
+.kit{{background:#f3f3f3;padding:16px 18px;border-radius:12px;font-size:15px}}.meta{{color:#666;margin-bottom:12px}}.step{{display:flex;align-items:center;gap:10px;margin:8px 0}}.step span{{width:26px;height:26px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center;font-size:14px;flex:none}}
+button,.btn{{padding:11px 16px;border:1px solid #bbb;background:#fff;border-radius:8px;cursor:pointer;font:15px -apple-system,Arial,sans-serif;color:#111;text-decoration:none}}button.main{{background:#111;color:#fff;border-color:#111}}details{{margin-top:12px;color:#555}}details ol{{margin:8px 0}}details button{{padding:4px 8px;font-size:13px}}h2{{margin-top:1.4em}}</style></head><body>
 <p><a href="index.html">← Все статьи</a></p>
-<div class="kit"><b>Дата:</b> {m['date']} · <b>Клуб:</b> {CLUB[m['club']][0]} · <b>Слов:</b> {n}<br><br>
-<button onclick="navigator.clipboard.writeText(document.getElementById('t').innerText)">1. Скопировать заголовок</button>
-<button id="c" onclick="copyBody()">2. Скопировать текст</button><br>
-<b>3. Обложка:</b> <a href="{cover}" download>скачать</a> · <button onclick="navigator.clipboard.writeText('{cover}')">ссылка</button>
-<br><b>4. Картинки в тексте</b> (места отмечены ниже, вставить по ссылке или с компьютера):<ol style="margin:4px 0">{''.join(kit)}</ol></div>
+<div class="kit"><div class="meta">{m['date']} · {CLUB[m['club']][0]} · {n} слов</div>
+<div class="step"><span>1</span><button onclick="copyTitle(this)">Скопировать заголовок</button></div>
+<div class="step"><span>2</span><a class="btn" href="{cover}" download>Скачать обложку</a></div>
+<div class="step"><span>3</span><button class="main" onclick="copyBody(this)">Скопировать весь текст с картинками</button></div>
+<details><summary>Если картинки не вставились</summary><ol>{''.join(kit)}</ol></details></div>
 <h1 id="t">{html.escape(m['title'])}</h1><p class="cover"><img src="img/dzen-{slug}-0.jpg" alt=""></p><div id="b">{body}</div>
-<script>async function copyBody(){{const d=document.getElementById('b').cloneNode(true);d.querySelectorAll('.pic').forEach(p=>p.remove());
-const h=d.innerHTML;await navigator.clipboard.write([new ClipboardItem({{'text/html':new Blob([h],{{type:'text/html'}}),'text/plain':new Blob([d.innerText],{{type:'text/plain'}})}})]);
-document.getElementById('c').textContent='Скопировано';}}</script></body></html>"""
+<script>const done=(b,t)=>{{const o=b.textContent;b.textContent=t;setTimeout(()=>b.textContent=o,1800)}};
+function copyTitle(b){{navigator.clipboard.writeText(document.getElementById('t').innerText);done(b,'Заголовок скопирован')}}
+async function copyBody(b){{const d=document.getElementById('b').cloneNode(true);d.querySelectorAll('img').forEach(i=>{{i.setAttribute('src',i.src);i.removeAttribute('alt')}});
+const h=d.innerHTML;await navigator.clipboard.write([new ClipboardItem({{'text/html':new Blob([h],{{type:'text/html'}}),'text/plain':new Blob([d.innerText],{{type:'text/plain'}})}})]);done(b,'Скопировано: вставляйте в редактор Дзена')}}</script></body></html>"""
 
 def main():
     bad, rows = 0, []
