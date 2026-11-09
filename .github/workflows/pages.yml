@@ -19,6 +19,7 @@ jobs:
       - run: python3 build_dzen.py
       - run: python3 build_tilda.py
       - run: python3 build_plan90.py
+      - run: python3 tema.py
       - run: |
           printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
       - uses: actions/upload-pages-artifact@v3
