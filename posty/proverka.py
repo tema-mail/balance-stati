@@ -35,10 +35,13 @@ def main(f):
     if len(posty) != 14:
         err.append(f"постов {len(posty)}, нужно 14")
     pary = {(x.get("data"), x.get("kanal")) for x in posty}
-    for d in range(16, 23):
+    import datetime as dt   # график раз в 3 дня от первой даты файла (правило Артёма 16.11)
+    d0 = min(dt.date.fromisoformat(x["data"]) for x in posty)
+    for i in range(len(posty) // 2):
         for k in ("dzen", "vk"):
-            if (f"2026-11-{d}", k) not in pary:
-                err.append(f"нет {k} на 2026-11-{d}")
+            d = (d0 + dt.timedelta(days=3 * i)).isoformat()
+            if (d, k) not in pary:
+                err.append(f"нет {k} на {d} (график раз в 3 дня)")
     for x in posty:
         k, t, z = x.get("kanal"), x.get("tekst") or "", x.get("zagolovok") or ""
         tag = f"{x.get('data')} {k}"
