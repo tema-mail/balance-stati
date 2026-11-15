@@ -5,3 +5,4 @@ site/*.json
 site/theme.css
 site/robots.txt
 refs/
+tilda/launchd.log
