@@ -28,7 +28,7 @@ def zagruzit(con, fail: Path) -> list[str]:
             itogi.append(f"{x['data']} {k} {tema}: уже есть")
             continue
         paket = {"zagolovok": x.get("zagolovok") or "", "tekst": x["tekst"], "kartinki": x.get("kartinki") or [],
-                 "pishet_chelovek": False, "ssylka": None, "filial": klub}   # филиал сети (настройка filialy в заводе)
+                 "pishet_chelovek": False, "ssylka": x.get("ssylka"), "filial": klub}   # ssylka – кнопка Google, filial – филиал сети
         paket.update(mod.vylozhit(paket, {}))
         if mod.pravila.avtopublikaciya:   # пост без статьи сайта – в Студию Дзена руками (как станция «Посты»)
             paket.update(sposob="paket", avtomaticheski=False, kuda="Студия Дзена → Создать → Статья",
