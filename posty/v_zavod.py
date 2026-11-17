@@ -3,7 +3,8 @@
 публикация → проверка площадки (красный список, правила, факты) → «ждёт да» (решение владельцу) → день в календаре.
 Запуск на claude-vps от пользователя zavod:
   PYTHONPATH=/opt/zavod/app python3 v_zavod.py /opt/zavod/data/zavod.db файл.json [--dry]
---dry – на копии базы, в настоящую ничего не пишет. Повторный запуск пропускает уже заведённые посты (по теме)."""
+--dry – на копии базы, в настоящую ничего не пишет. Повторный запуск пропускает уже заведённые посты (по теме),
+но дописывает им обоснование (docs/obosnovanie.md), если оно появилось или изменилось."""
 import json, shutil, sys, tempfile, time
 from pathlib import Path
 
@@ -23,12 +24,20 @@ def zagruzit(con, fail: Path) -> list[str]:
         k = x["kanal"]
         mod = pl.PLOSHCHADKI[k]
         tema = f"{IMYA[klub]}: {x['tema']}"
-        if con.execute("SELECT 1 FROM publikacii WHERE site_id=? AND ploshchadka=? AND tema=?",
-                       (s["id"], k, tema)).fetchone():
-            itogi.append(f"{x['data']} {k} {tema}: уже есть")
+        byl = con.execute("SELECT id, paket FROM publikacii WHERE site_id=? AND ploshchadka=? AND tema=?",
+                          (s["id"], k, tema)).fetchone()
+        if byl:   # пост уже в заводе: текст не трогаем, обоснование дописываем или обновляем
+            pk = json.loads(byl["paket"] or "{}")
+            if x.get("obosnovanie") and pk.get("obosnovanie") != x["obosnovanie"]:
+                pk["obosnovanie"] = x["obosnovanie"]
+                con.execute("UPDATE publikacii SET paket=? WHERE id=?", (json.dumps(pk, ensure_ascii=False), byl["id"]))
+                itogi.append(f"{x['data']} {k} {tema}: уже есть, обоснование дописано")
+            else:
+                itogi.append(f"{x['data']} {k} {tema}: уже есть")
             continue
         paket = {"zagolovok": x.get("zagolovok") or "", "tekst": x["tekst"], "kartinki": x.get("kartinki") or [],
-                 "pishet_chelovek": False, "ssylka": x.get("ssylka"), "filial": klub}   # ssylka – кнопка Google, filial – филиал сети
+                 "pishet_chelovek": False, "ssylka": x.get("ssylka"), "filial": klub,
+                 "obosnovanie": x.get("obosnovanie")}   # ssylka – кнопка Google, filial – филиал сети
         paket.update(mod.vylozhit(paket, {}))
         if mod.pravila.avtopublikaciya:   # пост без статьи сайта – в Студию Дзена руками (как станция «Посты»)
             paket.update(sposob="paket", avtomaticheski=False, kuda="Студия Дзена → Создать → Статья",
