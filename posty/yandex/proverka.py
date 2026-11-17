@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "posty"))
 import obosnovanie   # стандарт docs/obosnovanie.md: oshibki(ob, tekst) по посту, povtory(spisok) по всем
 TSV = Path.home() / "Sites/zavod-ai-sfera/data_spiski/balance.tsv"
+STUDIYA = TSV.with_name("studiya.tsv")
 KLUB = {"abricosovo": "abrikosovo", "imperial": None, "admiral": "admiral"}
 IMYA = {"abricosovo": "Balance Абрикосово", "imperial": "Balance Империал", "admiral": "Balance Адмирал"}
 DATY = ("2026-11-16", "2026-11-19", "2026-11-22", "2026-11-25", "2026-11-28",   # раз в 3 дня, все три клуба в один день
@@ -51,6 +52,11 @@ def krasnyy(klub):
         g = r["gde"]
         if g == "balance" or (KLUB[klub] and g == f"balance/{KLUB[klub]}"):
             out.append((r["regex"], r.get("isklyuchenie") or "", r["uroven"], r["prichina"]))
+    # общие правила завода: слой студии для всех и площадка «карты» (data_spiski/studiya.tsv) – их завод
+    # применяет при загрузке построчно; без них новость проходит здесь и встаёт СТОПом в заводе (было 17.11)
+    for r in csv.DictReader(STUDIYA.open(encoding="utf8"), delimiter="\t"):
+        if (r["sloy"], r["gde"]) in (("studiya", "*"), ("ploshchadka", "karty")):
+            out.append(("(?m)" + r["regex"], "", "STOP", r["prichina"]))
     return out
 
 

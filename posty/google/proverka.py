@@ -20,6 +20,7 @@ from obosnovanie import oshibki as ob_oshibki, povtory as ob_povtory
 
 ROOT = Path(__file__).resolve().parents[2]
 TSV = Path.home() / "Sites/zavod-ai-sfera/data_spiski/balance.tsv"
+STUDIYA = TSV.with_name("studiya.tsv")
 KLUB = {"abricosovo": "abrikosovo", "imperial": None, "admiral": "admiral"}
 IMYA = {"abricosovo": "Balance Абрикосово", "imperial": "Balance Империал", "admiral": "Balance Адмирал"}
 DATY = ("2026-11-20", "2026-11-23", "2026-11-26", "2026-11-29", "2026-12-02", "2026-12-05", "2026-12-08",
@@ -69,6 +70,11 @@ def krasnyy(klub):
         g = r["gde"]
         if g == "balance" or (KLUB[klub] and g == f"balance/{KLUB[klub]}"):
             out.append((r["regex"], r.get("isklyuchenie") or "", r["uroven"], r["prichina"]))
+    # общие правила завода: слой студии для всех и площадка «карты» (data_spiski/studiya.tsv) – их завод
+    # применяет при загрузке построчно; без них новость проходит здесь и встаёт СТОПом в заводе (было 17.11)
+    for r in csv.DictReader(STUDIYA.open(encoding="utf8"), delimiter="\t"):
+        if (r["sloy"], r["gde"]) in (("studiya", "*"), ("ploshchadka", "karty")):
+            out.append(("(?m)" + r["regex"], "", "STOP", r["prichina"]))
     return out
 
 
