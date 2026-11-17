@@ -50,6 +50,9 @@ HEAD = ["card", "h1", "title", "description", "theme", "query", "club", "slug", 
 PROMPTS = ["img0", "img1", "img2", "img3"]
 
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "posty"))
+import obosnovanie as OB  # noqa: E402 – проверка обоснования материала
+
 def parse(path):
     raw = path.read_text(encoding="utf8")
     head, _, body = raw.partition("\n---\n")
@@ -238,6 +241,12 @@ def lint(path, meta, blocks):
     for b in fq:
         if not b.startswith("**") or "\n" not in b:
             errs.append(f"вопрос без формата: {b[:40]}")
+    # обоснование (docs/obosnovanie.md): с декабря 2026 обязательно, у более ранних проверяем, если уже вписано
+    d, m, g = meta["date"].split()[0].split(".")
+    if meta.get("zachem") or f"{g}-{m}-{d}" >= "2026-12-01":
+        ob = {"zachem": meta.get("zachem", ""), "vedyot_na": meta.get("vedyot", ""), "ssylka": meta.get("vedyot_url", ""),
+              "klyuchi": [k.strip() for k in meta.get("klyuchi", "").split(";") if k.strip()], "spros": meta.get("spros", "")}
+        errs += OB.oshibki(ob, " ".join([meta.get("h1", ""), meta.get("title", ""), text]))
     return errs, n
 
 
