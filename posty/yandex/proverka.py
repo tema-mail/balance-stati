@@ -2,15 +2,19 @@
 """Проверка новостей Яндекс Бизнеса Баланса: posty/yandex/<клуб>.json. Код 0 – ошибок нет.
 Правила площадки – как в заводе (engine/ploshchadki.py: YandexBiznes, ZAPRETY_KART, RAZRYADKA, TELEFON),
 слова – красный список Баланса (data_spiski/balance.tsv). Завод не импортируем – правила переписаны сюда,
-при правке завода сверить. Запуск: python3 posty/yandex/proverka.py [файлы…] (без аргументов – все три клуба)."""
+при правке завода сверить. Обоснование каждой новости – posty/obosnovanie.py (нет или с ошибкой – падаем). Запуск: python3 posty/yandex/proverka.py [файлы…] (без аргументов – все три клуба)."""
 import csv, json, re, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "posty"))
+import obosnovanie   # стандарт docs/obosnovanie.md: oshibki(ob, tekst) по посту, povtory(spisok) по всем
 TSV = Path.home() / "Sites/zavod-ai-sfera/data_spiski/balance.tsv"
 KLUB = {"abricosovo": "abrikosovo", "imperial": None, "admiral": "admiral"}
 IMYA = {"abricosovo": "Balance Абрикосово", "imperial": "Balance Империал", "admiral": "Balance Адмирал"}
-DATY = ("2026-11-16", "2026-11-19", "2026-11-22", "2026-11-25", "2026-11-28")
+DATY = ("2026-11-16", "2026-11-19", "2026-11-22", "2026-11-25", "2026-11-28",   # раз в 3 дня, все три клуба в один день
+        "2026-12-01", "2026-12-04", "2026-12-07", "2026-12-10", "2026-12-13", "2026-12-16",
+        "2026-12-19", "2026-12-22", "2026-12-25", "2026-12-28", "2026-12-31")
 NE_BRAT = ("bal-admiral-klub-1", "bal-admiral-klub-2", "bal-admiral-spa-1")
 URL_IMG = "https://tema-mail.github.io/balance-stati/img/"
 SLOP = r"(?i)в современном мире|давайте разбер|важно отметить|не просто \w+, а|в заключение|играет важную роль|ключ к успеху"
@@ -82,6 +86,7 @@ def proverit(f, set_url=True):
         t, z = x.get("tekst") or "", x.get("zagolovok")
         tag = f"{klub} {x.get('data')}"
         if x.get("kanal") != "yandex_biznes": err.append(f"{tag}: канал не yandex_biznes")
+        for s in obosnovanie.oshibki(x.get("obosnovanie"), (z or "") + " " + t): err.append(f"{tag}: {s}")
         if z != "": err.append(f"{tag}: заголовок должен быть пустой строкой")
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", x.get("slug") or ""): err.append(f"{tag}: slug не латиница-через-дефис")
         if not 500 <= len(t) <= 1000: err.append(f"{tag}: {len(t)} знаков, нужно 500–1000")
@@ -100,8 +105,8 @@ def proverit(f, set_url=True):
             m = re.search(rx, t)
             if m: err.append(f"{tag}: {pr} («{m.group(0)[:40]}»)")
         # имена людей не выдумываем: слово с заглавной не в начале предложения и не из белого списка – смотреть глазами
-        bel = r"Balance|Адмирал|Абрикосово|Империал|Туапсе|Краснодар\w*|Детск\w+|Cycle[\w-]*|Aqua|Mix|Noodles|Power|Life|Fitness|Hammer|Strength|Nautilus|Star|Trac|ScanMe|InBody|КБЖУ|Шарко|Баунти|Горячий|Мангомания|Мужской|Восточная|Будь|Балансе"
-        for m in re.finditer(r"(?<=[^.\n«–] )([A-ZА-ЯЁ][\w-]+)", t):
+        bel = r"Balance|Адмирал|Абрикосово|Империал|Туапсе|Краснодар\w*|Детск\w+|Cycle[\w-]*|Aqua|Mix|Noodles|Power|Life|Fitness|Hammer|Strength|Nautilus|Star|Trac|ScanMe|InBody|КБЖУ|Шарко|Баунти|Горячий|Мангомания|Мужской|Восточная|Будь|Балансе|Нов\w+|День|Нептуна|Яндекс|Картах|БЕБИ"
+        for m in re.finditer(r"(?<=[^.!?\n«–] )([A-ZА-ЯЁ][\w-]+)", t):
             if not re.fullmatch(bel, m.group(1)): vn.append(f"{tag}: слово с заглавной «{m.group(1)}» – не имя ли")
         for rx, isk, ur, pr in rl:
             try:
@@ -136,6 +141,9 @@ def main(args):
         posty, n = proverit(f, set_url)
         vse[Path(f).stem] = posty
         oshibok += n
+    ob = [(f"{k} {x.get('data')}", x.get("obosnovanie")) for k, v in vse.items() for x in v]
+    for s in obosnovanie.povtory(ob):   # одинаковый zachem у двух новостей – брак
+        print("ОШИБКА", s); oshibok += 1
     if len(vse) > 1:   # в один день у разных клубов – разные темы и разные кадры
         for d in DATY:
             temy = [(k, x["tema"]) for k, v in vse.items() for x in v if x["data"] == d]

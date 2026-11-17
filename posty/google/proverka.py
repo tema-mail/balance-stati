@@ -7,11 +7,16 @@ ZAPRETY_KART, TELEFON), слова – красный список Баланс�
 клуба (строка «img<N>: настоящее фото» в статье), кадр не повторяется в соседних постах клуба и не больше
 двух раз, кнопка ssylka – страница клуба https с utm и кодом 200, тема не повторяет тему Яндекса того же
 клуба в ±3 дня, нет фраз из posty/yandex, posty/2026-11-16, dzen/, stati/.
+Обоснование «зачем мы это сделали» (docs/obosnovanie.md) – у каждой публикации, проверка posty/obosnovanie.py:
+поля, ключи стоят в тексте, ssylka = кнопка поста, zachem не повторяется ни у одной публикации; без обоснования – ошибка.
 Запуск: python3 posty/google/proverka.py [файлы…] [--bez-seti] (без файлов – все три клуба)."""
 import csv, json, re, subprocess, sys
 from datetime import date
 from pathlib import Path
 from PIL import Image
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from obosnovanie import oshibki as ob_oshibki, povtory as ob_povtory
 
 ROOT = Path(__file__).resolve().parents[2]
 TSV = Path.home() / "Sites/zavod-ai-sfera/data_spiski/balance.tsv"
@@ -26,10 +31,10 @@ KONEC = "Подробности – по кнопке."
 NE_BRAT = ("fitnes-klub-s-bassejnom-krasnodar-0.jpg", "detskij-bassejn-krasnodar-2.jpg", "kak-ubrat-zhivot-krasnodar-1.jpg")
 SLOP = r"(?i)в современном мире|давайте разбер|важно отметить|не просто \w+, а|в заключение|играет важную роль|ключ к успеху|пространство для|мы рады"
 # тема поста по slug: Google не повторяет тему Яндекса того же клуба в ±3 дня
-TEMY = {"cycle": r"cycle", "reformer": r"reformer|pilates", "akvaprog": r"akvaprogramm", "bani": r"akvaterm|saun|infrakras|solyan|hamam",
-        "zal": r"zal|scanme|inbody|hammer|kardio|funkcional|trener", "spa": r"spa|massazh|akvatornado|sharko|kosmetolog",
+TEMY = {"cycle": r"cycle", "reformer": r"reformer|pilates", "akvaprog": r"akvaprogramm|akvaaerob", "bani": r"akvaterm|saun|infrakras|solyan|hamam",
+        "zal": r"zal|scanme|inbody|hammer|kardio|funkcional|trener|trening", "spa": r"spa|massazh|akvatornado|sharko|kosmetolog|manikyur|pedikyur",
         "kafe": r"kafe|zavtrak|kbzhu", "rezhim": r"vyhodn|prazdnichn|rezhim", "plavanie": r"bassejn|plavan|shkola-plav",
-        "deti": r"detsk|shkol|sad|nyanya|bebi|lager|elki|rozhdeniya|rebenok"}
+        "deti": r"detsk|detyam|shkol|sad|nyanya|bebi|lager|elki|rozhdeniya|rebenok|igrov"}
 
 # engine/ploshchadki.py (завод, 16.11.2026)
 TELEFON = r"(?:\+7|\b8)[\s\-(]*\d{3}[\s\-)]*\d{3}[\s\-]*\d{2}[\s\-]*\d{2}"
@@ -196,6 +201,12 @@ def proverit(f, set_url, kor, kor5):
             err.append(f"{tag}: ssylka не https://balance-fit.ru/{klub}{UTM}{s}: {sl}")
         elif set_url and (c := kod(sl, follow=True)) != 200:
             err.append(f"{tag}: кнопка отвечает {c}")
+        # обоснование: поля и ключи (posty/obosnovanie.py), ведёт туда же, куда кнопка
+        ob = x.get("obosnovanie")
+        for o in ob_oshibki(ob, (z or "") + " " + t):
+            err.append(f"{tag}: {o}")
+        if isinstance(ob, dict) and ob.get("ssylka") != sl:
+            err.append(f"{tag}: обоснование: ssylka не равна кнопке поста")
     # один кадр: не в соседних постах клуба и не больше двух раз
     fn = [x["kartinki"][0].rsplit("/", 1)[-1] for x in posty if x.get("kartinki")]
     if all((ROOT / "site/img" / f).exists() for f in fn):
@@ -221,6 +232,9 @@ def main(args):
         posty, n = proverit(f, set_url, kor, kor5)
         vse[Path(f).stem] = posty
         oshibok += n
+    pov = ob_povtory([(f"{k} {x.get('data')}", x.get("obosnovanie")) for k, v in vse.items() for x in v])
+    for o in pov: print("ОШИБКА", o)
+    oshibok += len(pov)
     if len(vse) > 1:
         for d in DATY:   # в один день у разных клубов – разные темы
             den = [(k, x) for k, v in vse.items() for x in v if x["data"] == d]
