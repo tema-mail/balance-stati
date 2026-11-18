@@ -6,3 +6,10 @@ site/theme.css
 site/robots.txt
 refs/
 tilda/launchd.log
+# гео-карточки: шрифты Muller платные, исходники кадров и выгрузки с отзывами – не в публичный репо
+geo/**/brend/
+geo/**/img/
+geo/**/nabor.json
+geo/proba/
+geo/audit/*.json
+geo/tz/storis-plan-bez3d.json

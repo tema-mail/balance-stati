@@ -1,0 +1,820 @@
+[
+ {
+  "klub": "imperial",
+  "id": "kak-projti",
+  "nazvanie": "Как пройти",
+  "knopka": {
+   "tekst": "Маршрут",
+   "url": "https://balance-fit.ru/imperial/contacts?utm_source=yandex_maps&utm_medium=stories&utm_campaign=imperial-kak-projti"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Бородинская, 137, корп. 2",
+    "tekst": "Остановка «Горячеключевская улица» – 133 м",
+    "foto": "net"
+   },
+   {
+    "zagolovok": "Своя парковка клуба",
+    "tekst": "",
+    "foto": "net"
+   },
+   {
+    "zagolovok": "Вход в клуб",
+    "tekst": "",
+    "foto": "3d:вход"
+   },
+   {
+    "zagolovok": "Ресепшен",
+    "tekst": "Здесь выдают два полотенца на тренировку",
+    "foto": "3d:ресепшен"
+   }
+  ]
+ },
+ {
+  "klub": "imperial",
+  "id": "bassejn",
+  "nazvanie": "Бассейн и бани",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/imperial?utm_source=yandex_maps&utm_medium=stories&utm_campaign=imperial-bassejn"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Бассейн 25 м, 4 дорожки",
+    "tekst": "Открыт всё время работы клуба, сеансов нет",
+    "foto": "3d:бассейн"
+   },
+   {
+    "zagolovok": "Детский бассейн +32 °C",
+    "tekst": "Для малышей и первых навыков в воде",
+    "foto": "3d:детский бассейн"
+   },
+   {
+    "zagolovok": "Хаммам и финская сауна",
+    "tekst": "",
+    "foto": "3d:бани"
+   },
+   {
+    "zagolovok": "Инфракрасная сауна и соляная комната",
+    "tekst": "",
+    "foto": "3d:бани"
+   },
+   {
+    "zagolovok": "Зона релакса с лежаками",
+    "tekst": "Всё входит в клубную карту",
+    "foto": "3d:зона релакса"
+   }
+  ]
+ },
+ {
+  "klub": "imperial",
+  "id": "zal",
+  "nazvanie": "Тренажёрный зал",
+  "knopka": {
+   "tekst": "Записаться",
+   "url": "https://balance-fit.ru/imperial?utm_source=yandex_maps&utm_medium=stories&utm_campaign=imperial-zal"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Life Fitness и Hammer Strength",
+    "tekst": "",
+    "foto": "3d:тренажёрный зал"
+   },
+   {
+    "zagolovok": "4 зоны в одном зале",
+    "tekst": "Блочные, рычажные, свободные веса и стретчинг",
+    "foto": "3d:тренажёрный зал"
+   },
+   {
+    "zagolovok": "Кардиозона",
+    "tekst": "Дорожки, эллипсы, степперы, велотренажёры",
+    "foto": "3d:кардиозона"
+   },
+   {
+    "zagolovok": "Зона кроссфита",
+    "tekst": "Колесо, канаты, сани, плиобоксы",
+    "foto": "3d:кроссфит"
+   },
+   {
+    "zagolovok": "Тренер поможет начать",
+    "tekst": "Вводная тренировка с тренером входит в годовую карту",
+    "foto": "3d:тренажёрный зал"
+   }
+  ]
+ },
+ {
+  "klub": "imperial",
+  "id": "gruppovye",
+  "nazvanie": "Групповые",
+  "knopka": {
+   "tekst": "Расписание",
+   "url": "https://balance-fit.ru/imperial/schedule?utm_source=yandex_maps&utm_medium=stories&utm_campaign=imperial-gruppovye"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "4 зала групповых программ",
+    "tekst": "Более 50 видов тренировок",
+    "foto": "3d:зал групповых программ"
+   },
+   {
+    "zagolovok": "Йога, пилатес, реформер",
+    "tekst": "",
+    "foto": "3d:студия йоги и пилатеса"
+   },
+   {
+    "zagolovok": "Сайкл-студия",
+    "tekst": "",
+    "foto": "3d:сайкл-студия"
+   },
+   {
+    "zagolovok": "Зона единоборств с рингом",
+    "tekst": "",
+    "foto": "3d:зона единоборств"
+   },
+   {
+    "zagolovok": "Расписание – по кнопке",
+    "tekst": "Программы проходят по расписанию",
+    "foto": "3d:зал групповых программ"
+   }
+  ]
+ },
+ {
+  "klub": "imperial",
+  "id": "deti",
+  "nazvanie": "Детский клуб",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/imperial/kids?utm_source=yandex_maps&utm_medium=stories&utm_campaign=imperial-deti"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Пока вы тренируетесь",
+    "tekst": "Игровая комната для детей 3–13 лет",
+    "foto": "3d:детский клуб"
+   },
+   {
+    "zagolovok": "Фитнес-няня – с 6 месяцев",
+    "tekst": "О визите лучше предупредить заранее",
+    "foto": "3d:детский клуб"
+   },
+   {
+    "zagolovok": "Продлёнка для 6–10 лет",
+    "tekst": "Прогулка, обед и домашние задания",
+    "foto": "3d:детский клуб"
+   },
+   {
+    "zagolovok": "Подготовка к школе",
+    "tekst": "Для 3–7 лет, малые группы, педагог-психолог",
+    "foto": "3d:детский клуб"
+   },
+   {
+    "zagolovok": "Плавание для детей",
+    "tekst": "Тренировки с тренером в бассейне клуба",
+    "foto": "3d:детский бассейн"
+   }
+  ]
+ },
+ {
+  "klub": "imperial",
+  "id": "spa",
+  "nazvanie": "Balance спа",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/imperial/spa?utm_source=yandex_maps&utm_medium=stories&utm_campaign=imperial-spa"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Balance спа в клубе",
+    "tekst": "Ежедневно с 9:00 до 21:00",
+    "foto": "3d:спа"
+   },
+   {
+    "zagolovok": "Более 30 видов массажа",
+    "tekst": "",
+    "foto": "3d:спа"
+   },
+   {
+    "zagolovok": "Спа-программы и уход",
+    "tekst": "",
+    "foto": "3d:спа"
+   },
+   {
+    "zagolovok": "Акваторнадо и душ Шарко",
+    "tekst": "",
+    "foto": "3d:спа"
+   }
+  ]
+ },
+ {
+  "klub": "imperial",
+  "id": "kafe",
+  "nazvanie": "Balance кафе",
+  "knopka": {
+   "tekst": "Меню",
+   "url": "https://balance-fit.ru/imperial/cafe?utm_source=yandex_maps&utm_medium=stories&utm_campaign=imperial-kafe"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Balance кафе в клубе",
+    "tekst": "ПП-меню и обычное меню, десерты",
+    "foto": "3d:кафе"
+   },
+   {
+    "zagolovok": "ПП-торты и десерты",
+    "tekst": "Без сахара, яиц и муки",
+    "foto": "3d:кафе"
+   },
+   {
+    "zagolovok": "Доставка и фуршеты",
+    "tekst": "",
+    "foto": "3d:кафе"
+   }
+  ],
+  "cvet": "olivkovyy"
+ },
+ {
+  "klub": "imperial",
+  "id": "karty",
+  "nazvanie": "Клубные карты",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/imperial/cards?utm_source=yandex_maps&utm_medium=stories&utm_campaign=imperial-karty"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Клубная карта на 12 месяцев",
+    "tekst": "Бассейн, бани, зал и групповые – по одной карте",
+    "foto": "3d:ресепшен"
+   },
+   {
+    "zagolovok": "Безлимитная карта",
+    "tekst": "Будни 6:00–23:00, выходные 7:00–23:00",
+    "foto": "3d:тренажёрный зал"
+   },
+   {
+    "zagolovok": "Дневная карта",
+    "tekst": "Будни до 16:00, в выходные без ограничений",
+    "foto": "3d:бассейн"
+   },
+   {
+    "zagolovok": "Заморозка карты",
+    "tekst": "Входит в годовую карту",
+    "foto": "3d:зона релакса"
+   }
+  ]
+ },
+ {
+  "klub": "imperial",
+  "id": "svo",
+  "nazvanie": "Участникам СВО",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/imperial/promotions?utm_source=yandex_maps&utm_medium=stories&utm_campaign=imperial-svo"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Скидка 20% участникам СВО",
+    "tekst": "И их несовершеннолетним детям",
+    "foto": "3d:бассейн"
+   },
+   {
+    "zagolovok": "На клубные карты",
+    "tekst": "И на все фитнес-услуги клуба",
+    "foto": "3d:тренажёрный зал"
+   },
+   {
+    "zagolovok": "Как оформить",
+    "tekst": "Подробности – в отделе продаж клуба",
+    "foto": "3d:ресепшен"
+   }
+  ]
+ },
+ {
+  "klub": "abricosovo",
+  "id": "kak-projti",
+  "nazvanie": "Как пройти",
+  "knopka": {
+   "tekst": "Маршрут",
+   "url": "https://balance-fit.ru/abricosovo/contacts?utm_source=yandex_maps&utm_medium=stories&utm_campaign=abricosovo-kak-projti"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Бочарникова, 4, стр. Б",
+    "tekst": "Остановка «Сердце Губернского» – 168 м",
+    "foto": "/Users/artemgalimov/Sites/balance-stati/geo/foto/abricosovo-69-bez-nomerov.jpg"
+   },
+   {
+    "zagolovok": "Вход и ресепшен",
+    "tekst": "Здесь выдают два полотенца на тренировку",
+    "foto": "kat:80"
+   },
+   {
+    "zagolovok": "Отдел продаж – в холле",
+    "tekst": "Здесь оформляют гостевой визит",
+    "foto": "kat:64"
+   }
+  ]
+ },
+ {
+  "klub": "abricosovo",
+  "id": "bassejn",
+  "nazvanie": "Бассейн и бани",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/abricosovo?utm_source=yandex_maps&utm_medium=stories&utm_campaign=abricosovo-bassejn"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Бассейн 25 м, 4 дорожки",
+    "tekst": "Открыт всё время работы клуба, сеансов нет",
+    "foto": "kat:5"
+   },
+   {
+    "zagolovok": "Детский бассейн +32 °C",
+    "tekst": "Для малышей и первых навыков в воде",
+    "foto": "kat:15"
+   },
+   {
+    "zagolovok": "Финская сауна и хаммам",
+    "tekst": "Ещё инфракрасная сауна",
+    "foto": "kat:16"
+   },
+   {
+    "zagolovok": "Соляная комната",
+    "tekst": "",
+    "foto": "kat:23"
+   },
+   {
+    "zagolovok": "Зона релакса с лежаками",
+    "tekst": "Всё входит в клубную карту",
+    "foto": "kat:31"
+   }
+  ]
+ },
+ {
+  "klub": "abricosovo",
+  "id": "zal",
+  "nazvanie": "Тренажёрный зал",
+  "knopka": {
+   "tekst": "Записаться",
+   "url": "https://balance-fit.ru/abricosovo?utm_source=yandex_maps&utm_medium=stories&utm_campaign=abricosovo-zal"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Life Fitness и Hammer Strength",
+    "tekst": "",
+    "foto": "kat:28"
+   },
+   {
+    "zagolovok": "Блочные и рычажные тренажёры",
+    "tekst": "И зона свободных весов",
+    "foto": "kat:68"
+   },
+   {
+    "zagolovok": "Кардиозона",
+    "tekst": "",
+    "foto": "kat:47"
+   },
+   {
+    "zagolovok": "Функциональная зона и кроссфит",
+    "tekst": "",
+    "foto": "kat:7"
+   },
+   {
+    "zagolovok": "Тренер поможет начать",
+    "tekst": "Вводная тренировка с тренером входит в годовую карту",
+    "foto": "kat:32"
+   }
+  ]
+ },
+ {
+  "klub": "abricosovo",
+  "id": "gruppovye",
+  "nazvanie": "Групповые",
+  "knopka": {
+   "tekst": "Расписание",
+   "url": "https://balance-fit.ru/abricosovo/schedule?utm_source=yandex_maps&utm_medium=stories&utm_campaign=abricosovo-gruppovye"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Более 50 видов тренировок",
+    "tekst": "Программы проходят по расписанию",
+    "foto": "kat:22"
+   },
+   {
+    "zagolovok": "Пилатес и реформер",
+    "tekst": "",
+    "foto": "kat:55"
+   },
+   {
+    "zagolovok": "Ринг и татами для единоборств",
+    "tekst": "",
+    "foto": "kat:33"
+   },
+   {
+    "zagolovok": "Аквааэробика",
+    "tekst": "Уметь плавать не нужно – помогут жилеты",
+    "foto": "kat:36"
+   },
+   {
+    "zagolovok": "Расписание – по кнопке",
+    "tekst": "",
+    "foto": "kat:30"
+   }
+  ]
+ },
+ {
+  "klub": "abricosovo",
+  "id": "deti",
+  "nazvanie": "Детский клуб",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/abricosovo/kids?utm_source=yandex_maps&utm_medium=stories&utm_campaign=abricosovo-deti"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Пока вы тренируетесь",
+    "tekst": "Игровая комната для детей 3–13 лет",
+    "foto": "kat:4"
+   },
+   {
+    "zagolovok": "Фитнес-няня – с 6 месяцев",
+    "tekst": "О визите лучше предупредить заранее",
+    "foto": "kat:14"
+   },
+   {
+    "zagolovok": "Плавание для грудничков",
+    "tekst": "В детском бассейне +32 °C",
+    "foto": "kat:15"
+   },
+   {
+    "zagolovok": "Продлёнка для 6–10 лет",
+    "tekst": "Прогулка, обед и домашние задания",
+    "foto": "3d:детский клуб"
+   }
+  ]
+ },
+ {
+  "klub": "abricosovo",
+  "id": "massazh",
+  "nazvanie": "Массаж",
+  "knopka": {
+   "tekst": "Записаться",
+   "url": "https://balance-fit.ru/abricosovo/spa?utm_source=yandex_maps&utm_medium=stories&utm_campaign=abricosovo-massazh"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Массажный кабинет в клубе",
+    "tekst": "Более 10 видов массажа",
+    "foto": "3d:массажный кабинет"
+   },
+   {
+    "zagolovok": "Спортивный и корректирующий",
+    "tekst": "",
+    "foto": "3d:массажный кабинет"
+   },
+   {
+    "zagolovok": "Расслабляющий и лимфодренажный",
+    "tekst": "",
+    "foto": "3d:массажный кабинет"
+   }
+  ]
+ },
+ {
+  "klub": "abricosovo",
+  "id": "kafe",
+  "nazvanie": "Balance кафе",
+  "knopka": {
+   "tekst": "Меню",
+   "url": "https://balance-fit.ru/abricosovo/cafe?utm_source=yandex_maps&utm_medium=stories&utm_campaign=abricosovo-kafe"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Balance кафе в клубе",
+    "tekst": "Блюда до и после тренировки",
+    "foto": "kat:79"
+   },
+   {
+    "zagolovok": "КБЖУ у каждого блюда",
+    "tekst": "",
+    "foto": "kat:37"
+   },
+   {
+    "zagolovok": "ПП-меню и спортивное питание",
+    "tekst": "",
+    "foto": "kat:48"
+   }
+  ],
+  "cvet": "olivkovyy"
+ },
+ {
+  "klub": "abricosovo",
+  "id": "karty",
+  "nazvanie": "Клубные карты",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/abricosovo/cards?utm_source=yandex_maps&utm_medium=stories&utm_campaign=abricosovo-karty"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Клубная карта на 12 месяцев",
+    "tekst": "Бассейн, бани, зал и групповые – по одной карте",
+    "foto": "kat:80"
+   },
+   {
+    "zagolovok": "Безлимитная карта",
+    "tekst": "Будни 6:00–23:00, выходные 8:00–23:00",
+    "foto": "kat:32"
+   },
+   {
+    "zagolovok": "Дневная карта",
+    "tekst": "В выходные – без ограничений по времени",
+    "foto": "kat:73"
+   },
+   {
+    "zagolovok": "Заморозка карты",
+    "tekst": "Входит в годовую карту",
+    "foto": "kat:31"
+   }
+  ]
+ },
+ {
+  "klub": "abricosovo",
+  "id": "svo",
+  "nazvanie": "Участникам СВО",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/abricosovo/promotions?utm_source=yandex_maps&utm_medium=stories&utm_campaign=abricosovo-svo"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Скидка 20% участникам СВО",
+    "tekst": "И их несовершеннолетним детям",
+    "foto": "kat:5"
+   },
+   {
+    "zagolovok": "На клубные карты",
+    "tekst": "И на все фитнес-услуги клуба",
+    "foto": "kat:28"
+   },
+   {
+    "zagolovok": "Как оформить",
+    "tekst": "Подробности – в отделе продаж клуба",
+    "foto": "kat:64"
+   }
+  ]
+ },
+ {
+  "klub": "admiral",
+  "id": "kak-projti",
+  "nazvanie": "Как пройти",
+  "knopka": {
+   "tekst": "Маршрут",
+   "url": "https://balance-fit.ru/admiral/contacts?utm_source=yandex_maps&utm_medium=stories&utm_campaign=admiral-kak-projti"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Портовиков, 39/5",
+    "tekst": "Остановка «Больница моряков» – 540 м",
+    "foto": "net"
+   },
+   {
+    "zagolovok": "Своя парковка клуба",
+    "tekst": "",
+    "foto": "net"
+   },
+   {
+    "zagolovok": "Вход в клуб",
+    "tekst": "",
+    "foto": "3d:вход"
+   },
+   {
+    "zagolovok": "Ресепшен",
+    "tekst": "Здесь выдают два полотенца на тренировку",
+    "foto": "3d:ресепшен"
+   }
+  ]
+ },
+ {
+  "klub": "admiral",
+  "id": "bassejn",
+  "nazvanie": "Бассейн и бани",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/admiral?utm_source=yandex_maps&utm_medium=stories&utm_campaign=admiral-bassejn"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Бассейн 25 м, 4 дорожки",
+    "tekst": "Открыт всё время работы клуба, сеансов нет",
+    "foto": "kat:21"
+   },
+   {
+    "zagolovok": "Лежаки у воды",
+    "tekst": "",
+    "foto": "kat:10"
+   },
+   {
+    "zagolovok": "Финская сауна",
+    "tekst": "",
+    "foto": "kat:29"
+   },
+   {
+    "zagolovok": "Солевая сауна",
+    "tekst": "",
+    "foto": "kat:9"
+   },
+   {
+    "zagolovok": "Хаммам",
+    "tekst": "Всё входит в клубную карту",
+    "foto": "kat:12"
+   }
+  ]
+ },
+ {
+  "klub": "admiral",
+  "id": "zal",
+  "nazvanie": "Тренажёрный зал",
+  "knopka": {
+   "tekst": "Записаться",
+   "url": "https://balance-fit.ru/admiral?utm_source=yandex_maps&utm_medium=stories&utm_campaign=admiral-zal"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Nautilus и Star Trac",
+    "tekst": "",
+    "foto": "kat:20"
+   },
+   {
+    "zagolovok": "Свободные веса",
+    "tekst": "И зоны блочных и рычажных тренажёров",
+    "foto": "kat:38"
+   },
+   {
+    "zagolovok": "Кардиозона",
+    "tekst": "",
+    "foto": "kat:2"
+   },
+   {
+    "zagolovok": "Функциональная зона",
+    "tekst": "",
+    "foto": "kat:46"
+   },
+   {
+    "zagolovok": "Тренер поможет начать",
+    "tekst": "Вводная тренировка с тренером входит в годовую карту",
+    "foto": "kat:76"
+   }
+  ]
+ },
+ {
+  "klub": "admiral",
+  "id": "sajkl",
+  "nazvanie": "Сайкл-студия",
+  "knopka": {
+   "tekst": "Расписание",
+   "url": "https://balance-fit.ru/admiral/schedule?utm_source=yandex_maps&utm_medium=stories&utm_campaign=admiral-sajkl"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Сайкл-студия",
+    "tekst": "Тренировка на велотренажёрах – 45 минут",
+    "foto": "kat:50"
+   },
+   {
+    "zagolovok": "После – бассейн и сауны",
+    "tekst": "По той же клубной карте",
+    "foto": "kat:44"
+   },
+   {
+    "zagolovok": "Расписание – по кнопке",
+    "tekst": "",
+    "foto": "3d:сайкл-студия"
+   }
+  ]
+ },
+ {
+  "klub": "admiral",
+  "id": "gruppovye",
+  "nazvanie": "Групповые",
+  "knopka": {
+   "tekst": "Расписание",
+   "url": "https://balance-fit.ru/admiral/schedule?utm_source=yandex_maps&utm_medium=stories&utm_campaign=admiral-gruppovye"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Групповые программы",
+    "tekst": "Кардио, силовые, танцевальные, функциональные",
+    "foto": "kat:3"
+   },
+   {
+    "zagolovok": "Пилатес на реформере",
+    "tekst": "",
+    "foto": "kat:41"
+   },
+   {
+    "zagolovok": "Практики «разум и тело»",
+    "tekst": "",
+    "foto": "kat:43"
+   },
+   {
+    "zagolovok": "Аквааэробика",
+    "tekst": "Уметь плавать не нужно – помогут жилеты",
+    "foto": "kat:54"
+   },
+   {
+    "zagolovok": "Расписание – по кнопке",
+    "tekst": "Программы проходят по расписанию",
+    "foto": "kat:49"
+   }
+  ]
+ },
+ {
+  "klub": "admiral",
+  "id": "deti",
+  "nazvanie": "Детский клуб",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/admiral/kids?utm_source=yandex_maps&utm_medium=stories&utm_campaign=admiral-deti"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Пока вы тренируетесь",
+    "tekst": "Игровая комната для детей 3–13 лет",
+    "foto": "kat:82"
+   },
+   {
+    "zagolovok": "Детский фитнес с 6 месяцев",
+    "tekst": "Программы по возрастам до 13 лет",
+    "foto": "kat:81"
+   },
+   {
+    "zagolovok": "Школа плавания",
+    "tekst": "Группы 3–5, 6–8, 9–11 и 12–14 лет",
+    "foto": "kat:71"
+   },
+   {
+    "zagolovok": "Лагерь на каникулах",
+    "tekst": "Для детей 6–14 лет, трёхразовое питание",
+    "foto": "kat:11"
+   }
+  ]
+ },
+ {
+  "klub": "admiral",
+  "id": "karty",
+  "nazvanie": "Клубные карты",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/admiral/cards?utm_source=yandex_maps&utm_medium=stories&utm_campaign=admiral-karty"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Клубная карта на 12 месяцев",
+    "tekst": "Бассейн, сауны, зал и групповые – по одной карте",
+    "foto": "kat:18"
+   },
+   {
+    "zagolovok": "Безлимитная карта",
+    "tekst": "Будни 7:00–23:00, выходные 8:00–23:00",
+    "foto": "kat:56"
+   },
+   {
+    "zagolovok": "Дневная карта",
+    "tekst": "Будни до 16:00, в выходные без ограничений",
+    "foto": "kat:44"
+   },
+   {
+    "zagolovok": "Заморозка карты",
+    "tekst": "Входит в годовую карту",
+    "foto": "kat:53"
+   }
+  ]
+ },
+ {
+  "klub": "admiral",
+  "id": "svo",
+  "nazvanie": "Участникам СВО",
+  "knopka": {
+   "tekst": "Подробнее",
+   "url": "https://balance-fit.ru/admiral/promotions?utm_source=yandex_maps&utm_medium=stories&utm_campaign=admiral-svo"
+  },
+  "slajdy": [
+   {
+    "zagolovok": "Скидка 20% участникам СВО",
+    "tekst": "И их несовершеннолетним детям",
+    "foto": "kat:60"
+   },
+   {
+    "zagolovok": "На клубные карты",
+    "tekst": "И на все фитнес-услуги клуба",
+    "foto": "kat:20"
+   },
+   {
+    "zagolovok": "Как оформить",
+    "tekst": "Подробности – в отделе продаж клуба",
+    "foto": "3d:ресепшен"
+   }
+  ]
+ }
+]
