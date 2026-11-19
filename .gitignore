@@ -13,3 +13,6 @@ geo/**/nabor.json
 geo/proba/
 geo/audit/*.json
 geo/tz/storis-plan-bez3d.json
+refs/kurs-karty/zvuk/
+refs/kurs-karty/*.jpg
+refs/kurs-karty/*.json
