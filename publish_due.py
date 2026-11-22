@@ -49,6 +49,32 @@ def proverit_live(slug):
     return url
 
 
+def statya_v_zavode(slug):
+    """Точная запись Balance из Завода; без ZAVOD_DB коннектор остаётся автономным."""
+    baza = os.environ.get("ZAVOD_DB")
+    if not baza:
+        return None
+    app = os.environ.get("ZAVOD_APP", "/opt/zavod/app")
+    if app not in sys.path:
+        sys.path.insert(0, app)
+    from engine import db as zdb
+    con = zdb.connect(baza)
+    row = con.execute("SELECT c.id,c.site_id,c.status,c.url,c.prichina,"
+                      "json_extract(c.dannye,'$.tilda_uid') tilda_uid "
+                      "FROM stati_chernoviki c JOIN sites s ON s.id=c.site_id "
+                      "WHERE s.slug='balance' AND c.slug=?", (slug,)).fetchone()
+    return dict(row) if row else None
+
+
+def uzhe_vylozhena_v_zavode(slug, uid):
+    row = statya_v_zavode(slug)
+    if not row:
+        return False
+    if row["tilda_uid"] != uid:
+        raise RuntimeError(f"Завод: UID {row['tilda_uid']!r} вместо {uid!r} у {slug}")
+    return row["status"] == "vylozhen"
+
+
 def otmetit_v_zavode(slug, uid, url):
     """На сервере синхронизирует только точную статью Balance после публичной проверки."""
     baza = os.environ.get("ZAVOD_DB")
@@ -112,6 +138,13 @@ def main():
         elif date <= now:
             if mode == "--dry":
                 print("пора:", date, slug)
+                continue
+            if uzhe_vylozhena_v_zavode(slug, uid):
+                url = proverit_live(slug)
+                LOG.parent.mkdir(parents=True, exist_ok=True)
+                with LOG.open("a") as f:
+                    f.write(slug + "\n")
+                print(now, slug, "уже выложена в Заводе — повторно не выставляю", flush=True)
                 continue
             print(now, slug, call("feeds_update_post", args(slug, uid, date, "y")), flush=True)
             url = proverit_live(slug)
