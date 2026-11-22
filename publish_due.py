@@ -15,6 +15,7 @@ ROOT = Path(__file__).parent
 LOG = Path(os.environ.get("BALANCE_TILDA_LOG", ROOT / "tilda/opublikovano.log"))
 TZ = timezone(timedelta(hours=7))  # пояс ленты Asia/Bangkok
 TOKEN = Path(os.environ.get("BALANCE_TILDA_TOKEN", Path.home() / ".config/tilda/mcp_token_balance")).read_text().strip()
+USTARELO = {"ждёт «да» Артёма на выкладку в Тильду (расписание статей Баланса)"}
 
 
 def meta(slug):
@@ -58,7 +59,7 @@ def otmetit_v_zavode(slug, uid, url):
         sys.path.insert(0, app)
     from engine import db as zdb
     con = zdb.connect(baza)
-    row = con.execute("SELECT c.id,c.site_id,c.status,c.url,json_extract(c.dannye,'$.tilda_uid') tilda_uid "
+    row = con.execute("SELECT c.id,c.site_id,c.status,c.url,c.prichina,json_extract(c.dannye,'$.tilda_uid') tilda_uid "
                       "FROM stati_chernoviki c "
                       "JOIN sites s ON s.id=c.site_id WHERE s.slug='balance' AND c.slug=?", (slug,)).fetchone()
     if not row:
@@ -66,7 +67,8 @@ def otmetit_v_zavode(slug, uid, url):
     if row["tilda_uid"] != uid:
         raise RuntimeError(f"Завод: UID {row['tilda_uid']!r} вместо {uid!r} у {slug}")
     if row["status"] == "vylozhen" and row["url"] == url:
-        return
+        if row["prichina"] not in USTARELO:
+            return
     con.execute("UPDATE stati_chernoviki SET status='vylozhen',url=?,prichina='',updated=? WHERE id=?",
                 (url, time.time(), row["id"]))
     zdb.sobytie(con, "vykladka", f"Tilda Feed: доехало: {url}", site_id=row["site_id"], chernovik=row["id"])
