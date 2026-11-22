@@ -12,6 +12,7 @@ from engine import db, kalendar
 
 PREVYU = "https://tema-mail.github.io/balance-stati/{slug}.html"
 URL = "https://balance-fit.ru/{club}/blog/{slug}"
+PUT = {"imperial": "borodinskaya", "abricosovo": "abricosovo", "admiral": "admiral"}
 
 
 def shapka(md: str) -> dict:
@@ -27,6 +28,8 @@ def obosnovanie(d: dict) -> dict | None:
 
 def zagruzit(con, papka: Path, s_daty: str = "") -> list[str]:
     sid = con.execute("SELECT id FROM sites WHERE slug='balance'").fetchone()["id"]
+    uids = dict(l.split("\t") for l in (papka.parent / "tilda/uids.tsv").read_text(encoding="utf8").splitlines()
+                if "\t" in l)
     itogi = []
     for f in sorted(papka.glob("*.md")):
         d = shapka(f.read_text(encoding="utf8"))
@@ -34,14 +37,24 @@ def zagruzit(con, papka: Path, s_daty: str = "") -> list[str]:
         iso = f"{god}-{mes}-{den}"
         if s_daty and iso < s_daty:
             continue
+        if d["slug"] not in uids:
+            itogi.append(f"{iso} {d['slug']}: СТОП нет Tilda UID – сначала создать нативный черновик")
+            continue
         ob = obosnovanie(d)
         byl = con.execute("SELECT id, dannye FROM stati_chernoviki WHERE site_id=? AND slug=?", (sid, d["slug"])).fetchone()
         if byl:
             dn = json.loads(byl["dannye"] or "{}")
+            izmenen = False
+            if dn.get("tilda_uid") != uids[d["slug"]]:
+                dn["tilda_uid"] = uids[d["slug"]]
+                izmenen = True
             if ob and dn.get("obosnovanie") != ob:
                 dn["obosnovanie"] = ob
-                con.execute("UPDATE stati_chernoviki SET dannye=? WHERE id=?", (json.dumps(dn, ensure_ascii=False), byl["id"]))
-                itogi.append(f"{iso} {d['slug']}: уже есть, обоснование дописано")
+                izmenen = True
+            if izmenen:
+                con.execute("UPDATE stati_chernoviki SET dannye=?,url=? WHERE id=?",
+                            (json.dumps(dn, ensure_ascii=False), URL.format(club=PUT[d["club"]], slug=d["slug"]), byl["id"]))
+                itogi.append(f"{iso} {d['slug']}: уже есть, Tilda UID/адрес синхронизированы")
             else:
                 itogi.append(f"{iso} {d['slug']}: уже есть")
             continue
@@ -49,13 +62,13 @@ def zagruzit(con, papka: Path, s_daty: str = "") -> list[str]:
             itogi.append(f"{iso} {d['slug']}: СТОП нет обоснования в шапке")
             continue
         now = time.time()
-        dn = {"prevyu": PREVYU.format(slug=d["slug"]), "obosnovanie": ob}
+        dn = {"prevyu": PREVYU.format(slug=d["slug"]), "obosnovanie": ob, "tilda_uid": uids[d["slug"]]}
         con.execute("BEGIN")
         try:
             cid = con.execute("INSERT INTO stati_chernoviki(site_id, tema, slug, dannye, status, url, created, updated) "
                               "VALUES(?,?,?,?,?,?,?,?)",
                               (sid, d["h1"], d["slug"], json.dumps(dn, ensure_ascii=False), "gotovo",
-                               URL.format(club=d["club"], slug=d["slug"]), now, now)).lastrowid
+                               URL.format(club=PUT[d["club"]], slug=d["slug"]), now, now)).lastrowid
             kalendar.postavit(con, sid, "statya", cid, "sayt", data=iso)
             con.execute("COMMIT")
         except Exception:

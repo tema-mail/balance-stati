@@ -1,0 +1,26 @@
+[Unit]
+Description=Balance Tilda Feed publisher and Zavod status sync
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=zavod
+WorkingDirectory=/opt/zavod/sayty/balance-stati
+Environment=PYTHONPATH=/opt/zavod/app
+Environment=ZAVOD_APP=/opt/zavod/app
+Environment=ZAVOD_DB=/opt/zavod/data/zavod.db
+Environment=BALANCE_TILDA_TOKEN=/opt/zavod/secret/tilda_balance_token
+Environment=BALANCE_TILDA_LOG=/opt/zavod/data/balance-tilda-published.log
+ExecStartPre=/usr/bin/git -C /opt/zavod/sayty/balance-stati pull --ff-only
+ExecStart=/usr/bin/python3 /opt/zavod/sayty/balance-stati/publish_due.py
+Restart=always
+RestartSec=900
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+ReadWritePaths=/opt/zavod/sayty/balance-stati /opt/zavod/data
+
+[Install]
+WantedBy=multi-user.target
