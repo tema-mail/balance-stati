@@ -1,0 +1,806 @@
+/* SEO-zavod: tema statey Balance. Istochnik: pagebuilder.theme_css(balance-fit). */
+:root{
+  --bg:#000000; --surface:#101010; --text:#ffffff; --muted:rgba(255,255,255,.62); --line:rgba(255,255,255,.14);
+  --accent:#c4e805; --accent-text:#000000; --action:#ff3f49;
+  --navy:#00244b; --blue:#28348a; --olive:#678a2e; --coral:#ff8562;
+  --r-lg:40px; --r-md:24px; --r-pill:100px; --w:1240px;
+}
+.bal-page *{box-sizing:border-box}
+.bal-page{-webkit-text-size-adjust:100%}
+.bal-page{margin:0;background:var(--bg);color:var(--text);
+  font-family:'TildaSans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  font-size:19px;line-height:1.5;font-weight:400;
+  -webkit-font-smoothing:antialiased}
+.bal-page img{max-width:100%;height:auto;display:block}
+.bal-page a{color:inherit}
+.bal-page .shell{max-width:var(--w);margin:0 auto;padding:0 24px}
+.bal-page /* ── шапка ── */
+.top{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bal-page .top__in{display:flex;align-items:center;gap:28px;height:76px}
+.bal-page .top__logo img{height:30px;width:auto}
+.bal-page .top__nav{display:flex;gap:26px;margin-left:auto;font-size:16px;color:var(--muted)}
+.bal-page .top__nav a{text-decoration:none}
+.bal-page .top__nav a:hover{color:var(--text)}
+.bal-page .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 26px;border-radius:var(--r-pill);text-decoration:none;font-size:16px;
+  border:0;cursor:pointer;transition:transform .15s ease,opacity .15s ease;white-space:nowrap}
+.bal-page .btn:hover{transform:translateY(-1px);opacity:.92}
+.bal-page .btn--lime{background:var(--accent);color:var(--accent-text);font-weight:600}
+.bal-page .btn--action{background:var(--action);color:#fff;font-size:18px;padding:16px 32px}
+.bal-page .btn--ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.bal-page /* ── герой ── */
+.hero{padding:48px 0 20px}
+.bal-page /* Колонки тянутся на одну высоту, .bal-page фото заполняет свою целиком. Пока у обложки стоял
+   max-height, .bal-page она ужималась по высоте и — из-за фиксированных пропорций — переставала
+   доставать до правого края: рядом с картинкой оставалась дыра в сотню пикселей. */
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:56px;align-items:stretch}
+.bal-page .hero__text{min-width:0;display:flex;flex-direction:column;justify-content:center}
+.bal-page .hero__media{position:relative;min-width:0;display:flex}
+.bal-page .crumbs{font-size:14px;color:var(--muted);margin-bottom:26px}
+.bal-page .crumbs a{text-decoration:none}
+.bal-page .crumbs span{opacity:.5;padding:0 8px}
+.bal-page .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--accent);
+  letter-spacing:.04em;text-transform:uppercase;margin-bottom:18px}
+.bal-page .eyebrow img{width:14px;height:14px}
+.bal-page h1{font-size:clamp(32px,3.2vw,56px);line-height:1.08;font-weight:400;
+  margin:0 0 20px;letter-spacing:-.015em;text-wrap:balance}
+.bal-page .hero__lead{font-size:19px;line-height:1.55;color:rgba(255,255,255,.78);
+  max-width:46ch;margin:0 0 24px}
+.bal-page .hero__meta{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;color:var(--muted);margin-bottom:30px}
+.bal-page .hero__actions{display:flex;gap:14px;flex-wrap:wrap}
+.bal-page .hero__cover{border-radius:var(--r-lg);overflow:hidden;width:100%;
+  min-height:clamp(340px,44vw,520px);align-self:stretch}
+.bal-page .hero__cover img{width:100%;height:100%;object-fit:cover;display:block}
+.bal-page /* Цифра внахлёст на фото — приём с главной клиента: карточка «выезжает» за край блока
+   и связывает картинку с текстом, .bal-page вместо того чтобы висеть отдельной плиткой. */
+.hero__badge{position:absolute;left:-22px;bottom:28px;background:var(--accent);
+  color:var(--accent-text);border-radius:var(--r-md);padding:20px 24px;max-width:250px;
+  box-shadow:0 18px 48px rgba(0,0,0,.45)}
+.bal-page .hero__badge-num{display:block;font-size:34px;line-height:1.05;margin-bottom:6px}
+.bal-page .hero__badge-txt{display:block;font-size:15px;line-height:1.35;opacity:.82}
+.bal-page /* ── плашки фактов ── */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:44px 0 8px}
+.bal-page .fact{padding:28px;border-radius:var(--r-md);min-height:172px;display:flex;
+  flex-direction:column;gap:10px}
+.bal-page .fact__k{flex:none}
+.bal-page .fact--1{background:var(--navy)}
+.bal-page .fact--2{background:var(--olive)}
+.bal-page .fact--3{background:var(--blue)}
+.bal-page .fact__k{font-size:24px;line-height:1.22;margin-bottom:2px}
+.bal-page .fact__v{font-size:16px;line-height:1.45;color:rgba(255,255,255,.78)}
+.bal-page /* Плашка-клуб: вся карточка — ссылка на страницу этого клуба. */
+.fact--club{text-decoration:none;color:var(--text);justify-content:flex-start;
+  transition:transform .15s ease,box-shadow .15s ease}
+.bal-page .fact--club:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.bal-page .fact--club .fact__k{font-size:22px}
+.bal-page .fact--club .fact__tel{margin-top:auto;font-size:17px;color:#fff}
+.bal-page /* ── сетка со стороной ── */
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;
+  align-items:start;padding:20px 0 40px}
+.bal-page /* Сторона прилипает под шапкой и НЕ вылезает за экран: на ноутбуке высота окна
+   около 700-800 px, .bal-page а карточка с оглавлением на 10-13 пунктов занимает под 900 —
+   нижние пункты и кнопка оказывались недосягаемы, .bal-page пока сторона приклеена. */
+.side{position:sticky;top:80px;max-height:calc(100vh - 96px);
+  display:flex;flex-direction:column;gap:14px}
+.bal-page .side__card{background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-md);padding:20px 18px 20px 20px;
+  display:flex;flex-direction:column;min-height:0}
+.bal-page .side__title{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.bal-page .side__title img{width:12px;height:12px}
+.bal-page /* Полоска прочитанного: показывает, .bal-page сколько статьи позади. Без неё длинное оглавление
+   выглядит просто списком ссылок и не даёт ощущения продвижения. */
+.side__bar{height:3px;border-radius:2px;background:rgba(255,255,255,.1);margin-bottom:18px}
+.bal-page .side__bar span{display:block;height:100%;width:0;border-radius:2px;background:var(--accent);
+  transition:width .25s ease}
+.bal-page /* Список прокручивается внутри карточки, .bal-page если не помещается: заголовок «Содержание»
+   и полоска прочитанного остаются на месте. Скроллбар тонкий и полупрозрачный —
+   раньше от прокрутки отказались как раз из-за серой системной полосы. */
+/* 🔴 Ползунок был 4 px и почти прозрачный: попасть в него мышью не выходило, .bal-page и
+   оглавление читалось как сломанное. Делаем его шире и видимым, .bal-page а месту под него
+   оставляем отступ справа, .bal-page чтобы он не наезжал на текст пунктов. */
+.side__nav{list-style:none;margin:0;padding:0 8px 0 0;counter-reset:toc;
+  overflow-y:auto;min-height:0;overscroll-behavior:contain;
+  scrollbar-width:auto;scrollbar-color:rgba(255,255,255,.38) rgba(255,255,255,.08)}
+.bal-page .side__nav::-webkit-scrollbar{width:10px}
+.bal-page .side__nav::-webkit-scrollbar-track{background:rgba(255,255,255,.07);border-radius:5px}
+.bal-page .side__nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,.38);border-radius:5px;
+  border:2px solid transparent;background-clip:padding-box}
+.bal-page .side__nav::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.6);
+  background-clip:padding-box}
+.bal-page .side__nav li{counter-increment:toc}
+.bal-page .side__nav a{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:baseline;
+  font-size:14.5px;line-height:1.32;color:rgba(255,255,255,.66);text-decoration:none;
+  padding:8px 10px;border-radius:12px;transition:background .15s ease,color .15s ease}
+.bal-page .side__nav a::before{content:counter(toc,decimal-leading-zero);font-size:12px;
+  color:rgba(255,255,255,.34);letter-spacing:.02em}
+.bal-page .side__nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.bal-page .side__nav a.is-active{color:var(--accent-text);background:var(--accent);font-weight:500}
+.bal-page .side__nav a.is-active::before{color:rgba(0,0,0,.5)}
+.bal-page .side__cta{margin-top:16px;background:var(--action);border-radius:var(--r-md);padding:24px;
+  flex:none}
+.bal-page .side__cta p{margin:0 0 16px;font-size:16px;line-height:1.4}
+.bal-page .side__cta .btn{width:100%;background:#fff;color:#000;font-weight:600}
+.bal-page /* ── текст статьи ── */
+/* Липкая шапка перекрывает заголовок при переходе по якорю — отступ возвращает его
+   в поле зрения. Без этого клик по оглавлению выглядит как «промахнулся мимо раздела». */
+.sec, .bal-page .faq, .bal-page .related{scroll-margin-top:96px}
+.bal-page{scroll-behavior:smooth}
+.bal-page .sec{padding:38px 0;border-top:1px solid var(--line)}
+.bal-page .sec:first-child{border-top:0;padding-top:8px}
+.bal-page .sec--intro{border-top:0;padding-top:0}
+.bal-page .sec--intro p:first-child{font-size:20px;color:rgba(255,255,255,.9)}
+.bal-page .sec h2{font-size:40px;line-height:1.2;font-weight:400;margin:0 0 22px;letter-spacing:-.01em}
+.bal-page .sec h3{font-size:26px;line-height:1.3;font-weight:600;margin:32px 0 14px}
+.bal-page .sec p{margin:0 0 18px;color:rgba(255,255,255,.86)}
+.bal-page .sec ul, .bal-page .sec ol{margin:0 0 20px;padding-left:22px}
+.bal-page .sec li{margin-bottom:10px;color:rgba(255,255,255,.86)}
+.bal-page .sec strong{color:#fff;font-weight:600}
+.bal-page .sec a{color:var(--accent)}
+.bal-page .sec--warn{background:rgba(255,133,98,.07);border:1px solid rgba(255,133,98,.28);
+  border-radius:var(--r-md);padding:34px;margin:38px 0}
+.bal-page .sec--warn h2{color:var(--coral)}
+.bal-page .sec--price h2{color:var(--accent)}
+.bal-page /* ── картинки ── */
+.art-fig{margin:30px 0}
+.bal-page .art-fig--sec{margin:6px 0 26px}
+.bal-page .art-fig img{width:100%;border-radius:var(--r-md)}
+.bal-page .art-fig figcaption{margin-top:12px;font-size:14px;color:var(--muted)}
+.bal-page /* ── прайс ── */
+.art-table-wrap{overflow-x:auto;margin:26px 0;border-radius:var(--r-md);
+  border:1px solid var(--line)}
+.bal-page table{width:100%;min-width:560px;border-collapse:collapse;font-size:16px}
+.bal-page th{background:var(--navy);text-align:left;padding:16px 18px;font-weight:600;
+  font-size:15px;white-space:nowrap}
+.bal-page td{padding:15px 18px;border-top:1px solid var(--line);
+  color:rgba(255,255,255,.84);vertical-align:top}
+.bal-page tbody tr:hover{background:rgba(255,255,255,.03)}
+.bal-page /* ── вопросы ── */
+.faq{padding:40px 0;border-top:1px solid var(--line)}
+.bal-page .faq h2{font-size:40px;font-weight:400;margin:0 0 24px}
+.bal-page .faq__item{border:1px solid var(--line);border-radius:var(--r-md);
+  margin-bottom:12px;background:var(--surface);overflow:hidden}
+.bal-page .faq__item summary{padding:20px 24px 0;font-size:18px;list-style:none;
+  pointer-events:none;font-weight:500}
+.bal-page .faq__item summary::-webkit-details-marker{display:none}
+.bal-page .faq__a{padding:12px 24px 22px;color:rgba(255,255,255,.8)}
+.bal-page .faq__a p{margin:0}
+.bal-page /* ── финальный призыв ── */
+.cta{background:var(--olive);border-radius:var(--r-lg);padding:60px;
+  margin:10px 0 20px;position:relative;overflow:hidden}
+.bal-page .cta__in{max-width:760px;position:relative;z-index:1}
+.bal-page .cta h2{font-size:40px;font-weight:400;margin:0 0 18px;max-width:22ch}
+.bal-page .cta p{font-size:18px;color:rgba(255,255,255,.9);max-width:64ch;margin:0 0 26px}
+.bal-page .cta__star{position:absolute;right:-40px;top:-40px;width:260px;opacity:.22}
+.bal-page .cta .btn--lime{font-size:18px;padding:17px 34px}
+.bal-page /* ── перелинковка ── */
+.related{padding:44px 0 80px}
+.bal-page .related h2{font-size:40px;font-weight:400;margin:0 0 24px}
+.bal-page .related__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.bal-page .related__item{display:block;padding:22px;border:1px solid var(--line);border-radius:var(--r-md);
+  text-decoration:none;background:var(--surface);transition:border-color .15s ease,transform .15s ease}
+.bal-page .related__item:hover{border-color:var(--accent);transform:translateY(-2px)}
+.bal-page .related__name{display:block;font-size:18px;margin-bottom:6px}
+.bal-page .related__hint{display:block;font-size:14px;color:var(--muted);line-height:1.4}
+.bal-page /* «Читать дальше» — три соседние статьи в конце текста. Отдельные классы, .bal-page а не .related: блок ленты с тем же именем feedpage вырезает из тела поста. */
+.sec--next{border-top:1px solid var(--line);padding-top:34px}
+.bal-page .next__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.bal-page .next__item{display:block;padding:20px 22px;border:1px solid var(--line);
+  border-radius:var(--r-md);text-decoration:none;transition:border-color .15s ease,transform .15s ease}
+.bal-page .next__item:hover{border-color:var(--accent);transform:translateY(-2px)}
+.bal-page .next__name{display:block;font-size:17px;line-height:1.35;color:var(--text)}
+.bal-page /* ── подвал ── */
+.foot__clubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;margin-bottom:32px}
+.bal-page .foot__club{padding:22px;border:1px solid var(--line);border-radius:var(--r-md)}
+.bal-page .foot__club b{display:block;font-weight:400;font-size:18px;color:var(--text);margin-bottom:6px}
+.bal-page .foot__club a{color:var(--accent);text-decoration:none}
+.bal-page .foot__hours{display:inline-block;margin-top:6px;color:var(--muted);font-size:15px}
+.bal-page .foot__club-name{color:var(--text)!important;text-decoration:none;border-bottom:1px solid var(--line)}
+.bal-page .foot__club-name:hover{color:var(--accent)!important;border-bottom-color:var(--accent)}
+.bal-page .foot__links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.bal-page .foot{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-size:15px}
+.bal-page .foot__in{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+.bal-page .foot a{color:var(--muted);text-decoration:none}
+.bal-page .foot a:hover{color:var(--text)}
+/* Планшет: три плашки в ряд ужимаются до 230px и текст в них ломается — делим на две.
+   Ровно так же перестраивается перелинковка и карточки клубов в подвале. */
+@media (max-width:1024px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bal-page .related__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:960px){.bal-page .hero__grid{grid-template-columns:1fr;gap:30px}
+.bal-page .hero__media{order:-1}
+.bal-page .hero__cover{aspect-ratio:16/9}
+.bal-page .hero__badge{left:auto;right:16px;bottom:-18px;padding:16px 20px}
+}
+@media (max-width:1060px){.bal-page /* minmax(0, .bal-page …), .bal-page а не 1fr: у `1fr` минимум — по содержимому, .bal-page и таблица прайса
+     с `min-width:560px` растягивала колонку до 562 px на телефоне. Текст уезжал
+     вправо за край экрана. С нулевым минимумом колонка сжимается, .bal-page а таблица
+     прокручивается внутри своей обёртки `.art-table-wrap`. */
+  .grid{grid-template-columns:minmax(0,1fr);gap:0}
+.bal-page .article{min-width:0}
+.bal-page .side{position:static;margin-bottom:32px;max-height:none;display:block}
+.bal-page /* Оглавление на телефоне прячем: колонки нет, .bal-page и карточка со списком разделов
+     оказывается ПОД всей статьёй — содержание после текста бесполезно.
+     Призыв записаться внизу оставляем, .bal-page он там уместен. */
+  .side__card{display:none}
+.bal-page .side__nav{max-height:none;overflow:visible}
+}
+@media (max-width:720px){.bal-page{font-size:17px}
+.bal-page h1{font-size:34px}
+.bal-page .sec h2, .bal-page .faq h2, .bal-page .cta h2{font-size:26px}
+.bal-page .hero{padding:32px 0 24px}
+.bal-page .hero__lead{font-size:18px}
+.bal-page .facts, .bal-page .related__grid, .bal-page .foot__clubs{grid-template-columns:1fr}
+.bal-page .cta{padding:30px 22px;border-radius:var(--r-md)}
+.bal-page .cta__star{width:150px;right:-30px;top:-30px}
+.bal-page .related{padding:30px 0 48px}
+.bal-page .cta{padding:32px 24px}
+.bal-page .top__nav{display:none}
+.bal-page .shell{padding:0 16px}
+}
+
+/* ── стыковка с обёртками Потоков ──────────────────────────────────────────
+   Лента заворачивает пост в свои контейнеры шириной 760px со своей типографикой:
+   без этого сетка «текст + оглавление» не разворачивается. */
+.t-redactor__tte-view, .t-cms__page__cell, .t-cms__page__molecule,
+.t-cms__page__atom.t-text { display: contents !important; }
+.t-cms__page-wrapper, .t-cms__page-wrapper.t-width, article.t-cms__page,
+article.t-cms__page.t-width_8, .t-cms__page_tile {
+  max-width: none !important; padding: 0 !important;
+}
+/* Фон красим всем предкам: между блоками остаётся зазор, через который просвечивает
+   белая страница Тильды — на телефоне это особенно заметно. */
+html, body, .t-body, #allrecords, .t-records, .t-rec, .t-feed, .t-cms__page-wrapper,
+.t-cms__page, .t-cms__parts, [class*="t-cms__page-container"], [class*="t-feed__"] {
+  background: var(--bg) !important; background-color: var(--bg) !important;
+}
+/* Заголовок, дату и обложку лента рисует сама, поверх нашего героя — выходит дубль.
+   Обложка (t-cms__page__cell_media) при этом растягивается во весь экран: на карточке
+   в ленте она нужна, в самой статье у нас свой герой со своей фотографией. */
+.t-cms__page-title, .t-cms__page__atom.t-heading, .t-cms__page__atom.t-uptitle,
+.t-cms__page-header, .t-feed__post-popup__title,
+.t-feed__post-popup__close-wrapper { display: none !important; }
+/* Два класса в селекторе — иначе правило выше (display:contents для всех ячеек)
+   перебивает скрытие, и обложка остаётся на экране. */
+body:has(.bal-page) .t-cms__page__cell.t-cms__page__cell_media,
+body:has(.bal-page) .t-cms__page__molecule.t-cms__page__molecule_media,
+.t-cms__page__cell.t-cms__page__cell_media,
+.t-cms__page__molecule.t-cms__page__molecule_media,
+.t-cms__page__atom .t-cms__page__image.t-bgimg { display: none !important; }
+.t-rec { padding: 0 !important; }
+.t-cms__page, [class*="t-cms__page-container"] {
+  padding-top: 0 !important; margin-top: 0 !important;
+}
+
+
+.bal-page .faq__q { padding: 20px 24px 0; display: block;
+  font-size: 18px; line-height: 1.35; font-weight: 500; }
+.bal-page .faq__a { display: block; padding: 12px 24px 22px; }
+.bal-page .side__bar { display: none; }
+
+.bal-page.has-js .side__bar { display: block; }
+
+/* Низ статьи и низ колонки с оглавлением должны заканчиваться на одной линии:
+   иначе призыв в сайдбаре свисает ниже последней плашки и слева от него дыра. */
+.bal-page .article > *:last-child { padding-bottom: 0; }
+.bal-page .faq__item:last-child { margin-bottom: 0; }
+
+
+/* ── картинки статей: фон вместо , который санитайзер Потоков вырезает ── */
+.bal-page .top__logo{display:inline-block;width:150px;height:30px;
+  background:url(https://optim.tildacdn.com/tild6637-3064-4431-b062-333936386334/-/resize/368x/-/format/webp/Balance-logo-green-s.png.webp) left center/contain no-repeat}
+.bal-page .top__logo img{display:none}
+.bal-page .hero__cover{background:#111 center/cover no-repeat}
+.bal-page .art-pic{display:block;width:100%;aspect-ratio:16/9;
+  background:#111 center/cover no-repeat;border-radius:var(--r-md);overflow:hidden}
+.bal-page .hero__cover .art-pic{height:100%;aspect-ratio:auto;border-radius:0}
+.bal-page .art-fig{margin:0 0 18px}
+
+.bal-page .hero__cover--bal-bassejn-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar.jpg)}
+.bal-page .hero__cover--bal-fitnes-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar.jpg)}
+.bal-page .hero__cover--bal-spa-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-spa-krasnodar.jpg)}
+.bal-page .hero__cover--bal-sauna-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar.jpg)}
+.bal-page .hero__cover--bal-fitnes-klub-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-klub-krasnodar.jpg)}
+.bal-page .hero__cover--bal-joga-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-joga-krasnodar.jpg)}
+.bal-page .hero__cover--bal-hamam-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-hamam-krasnodar.jpg)}
+.bal-page .hero__cover--bal-pilates-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-pilates-krasnodar.jpg)}
+.bal-page .hero__cover--bal-akvaaerobika-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar.jpg)}
+.bal-page .hero__cover--bal-bassejn-krasnodar-otdyh{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-otdyh.jpg)}
+.bal-page .hero__cover--bal-trenajernyj-zal-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar.jpg)}
+.bal-page .hero__cover--massaj-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massaj-krasnodar.jpg)}
+.bal-page .hero__cover--plavanie-dla-detej-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/plavanie-dla-detej-krasnodar.jpg)}
+.bal-page .hero__cover--detskij-klub-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-krasnodar.jpg)}
+.bal-page .hero__cover--pilates-na-reformere-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-na-reformere-krasnodar.jpg)}
+.bal-page .hero__cover--detskij-lager-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-lager-krasnodar.jpg)}
+.bal-page .hero__cover--stretcing-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/stretcing-krasnodar.jpg)}
+.bal-page .hero__cover--fitnes-klub-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-klub-tuapse.jpg)}
+.bal-page .hero__cover--bassejn-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bassejn-tuapse.jpg)}
+.bal-page .hero__cover--trenajernyj-zal-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/trenajernyj-zal-tuapse.jpg)}
+.bal-page .hero__cover--krossfit-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/krossfit-krasnodar.jpg)}
+.bal-page .hero__cover--gruppovye-trenirovki-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-krasnodar.jpg)}
+.bal-page .hero__cover--personalnyj-trener-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-krasnodar.jpg)}
+.bal-page .hero__cover--spa-programmy-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/spa-programmy-krasnodar.jpg)}
+.bal-page .hero__cover--gruppovye-trenirovki-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-tuapse.jpg)}
+.bal-page .hero__cover--inbody-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/inbody-krasnodar.jpg)}
+.bal-page .hero__cover--chistka-lica-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/chistka-lica-krasnodar.jpg)}
+.bal-page .hero__cover--fitnes-dlya-nachinayushchih-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-krasnodar.jpg)}
+.bal-page .hero__cover--detskij-klub-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-tuapse.jpg)}
+.bal-page .hero__cover--manikyur-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/manikyur-krasnodar.jpg)}
+.bal-page .hero__cover--sauna-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sauna-tuapse.jpg)}
+.bal-page .hero__cover--den-rozhdeniya-rebenka-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-krasnodar.jpg)}
+.bal-page .hero__cover--tancevalnaya-aerobika-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancevalnaya-aerobika-krasnodar.jpg)}
+.bal-page .hero__cover--personalnyj-trener-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-tuapse.jpg)}
+.bal-page .hero__cover--dush-sharko-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/dush-sharko-krasnodar.jpg)}
+.bal-page .hero__cover--solyanaya-komnata-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyanaya-komnata-krasnodar.jpg)}
+.bal-page .hero__cover--sajkl-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sajkl-tuapse.jpg)}
+.bal-page .hero__cover--prodlenka-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/prodlenka-krasnodar.jpg)}
+.bal-page .hero__cover--kak-vybrat-fitnes-klub-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/kak-vybrat-fitnes-klub-krasnodar.jpg)}
+.bal-page .hero__cover--semejnyj-fitnes-klub-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/semejnyj-fitnes-klub-tuapse.jpg)}
+.bal-page .hero__cover--solyarij-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyarij-krasnodar.jpg)}
+.bal-page .hero__cover--zamorozka-klubnoj-karty{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/zamorozka-klubnoj-karty.jpg)}
+.bal-page .hero__cover--fitnes-dlya-nachinayushchih-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-tuapse.jpg)}
+.bal-page .hero__cover--shkola-plavaniya-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/shkola-plavaniya-tuapse.jpg)}
+.bal-page .hero__cover--korporativnyj-fitnes-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/korporativnyj-fitnes-krasnodar.jpg)}
+.bal-page .hero__cover--massazh-lica-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massazh-lica-krasnodar.jpg)}
+.bal-page .hero__cover--akvaaerobika-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/akvaaerobika-tuapse.jpg)}
+.bal-page .hero__cover--sportivnyj-massazh-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sportivnyj-massazh-krasnodar.jpg)}
+.bal-page .hero__cover--podgotovka-k-shkole-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/podgotovka-k-shkole-krasnodar.jpg)}
+.bal-page .hero__cover--den-rozhdeniya-rebenka-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-tuapse.jpg)}
+.bal-page .hero__cover--funkcionalnyj-trening-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/funkcionalnyj-trening-krasnodar.jpg)}
+.bal-page .hero__cover--pedikyur-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pedikyur-krasnodar.jpg)}
+.bal-page .hero__cover--edinoborstva-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/edinoborstva-tuapse.jpg)}
+.bal-page .hero__cover--fitnes-sekcii-dlya-detej-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-sekcii-dlya-detej-krasnodar.jpg)}
+.bal-page .hero__cover--lazernaya-epilyaciya-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/lazernaya-epilyaciya-krasnodar.jpg)}
+.bal-page .hero__cover--tancy-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancy-tuapse.jpg)}
+.bal-page .hero__cover--grudnichkovoe-plavanie-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/grudnichkovoe-plavanie-krasnodar.jpg)}
+.bal-page .hero__cover--mini-sad-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/mini-sad-krasnodar.jpg)}
+.bal-page .hero__cover--pilates-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-tuapse.jpg)}
+.bal-page .hero__cover--obuchenie-plavaniyu-vzroslyh-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/obuchenie-plavaniyu-vzroslyh-krasnodar.jpg)}
+.bal-page .hero__cover--trener-po-plavaniyu-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/trener-po-plavaniyu-krasnodar.jpg)}
+.bal-page .hero__cover--igrovaya-komnata-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/igrovaya-komnata-tuapse.jpg)}
+.bal-page .pic--akvaaerobika-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/akvaaerobika-tuapse-sec1.jpg)}
+.bal-page .pic--akvaaerobika-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/akvaaerobika-tuapse-sec2.jpg)}
+.bal-page .pic--akvaaerobika-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/akvaaerobika-tuapse-sec3.jpg)}
+.bal-page .pic--akvaaerobika-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/akvaaerobika-tuapse.jpg)}
+.bal-page .pic--bal-akvaaerobika-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar-2.jpg)}
+.bal-page .pic--bal-akvaaerobika-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar-3.jpg)}
+.bal-page .pic--bal-akvaaerobika-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar-cover.jpg)}
+.bal-page .pic--bal-akvaaerobika-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-akvaaerobika-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-akvaaerobika-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-akvaaerobika-krasnodar-sec4{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar-sec4.jpg)}
+.bal-page .pic--bal-akvaaerobika-krasnodar-sec5{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar-sec5.jpg)}
+.bal-page .pic--bal-akvaaerobika-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-akvaaerobika-krasnodar.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-2.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-3.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-cover.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-otdyh-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-otdyh-2.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-otdyh-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-otdyh-3.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-otdyh{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-otdyh.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-sec4{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-sec4.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar-sec5{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar-sec5.jpg)}
+.bal-page .pic--bal-bassejn-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-bassejn-krasnodar.jpg)}
+.bal-page .pic--bal-fitnes-klub-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-klub-krasnodar-2.jpg)}
+.bal-page .pic--bal-fitnes-klub-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-klub-krasnodar-3.jpg)}
+.bal-page .pic--bal-fitnes-klub-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-klub-krasnodar-cover.jpg)}
+.bal-page .pic--bal-fitnes-klub-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-klub-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-fitnes-klub-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-klub-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-fitnes-klub-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-klub-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-fitnes-klub-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-klub-krasnodar.jpg)}
+.bal-page .pic--bal-fitnes-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar-2.jpg)}
+.bal-page .pic--bal-fitnes-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar-3.jpg)}
+.bal-page .pic--bal-fitnes-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar-cover.jpg)}
+.bal-page .pic--bal-fitnes-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-fitnes-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-fitnes-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-fitnes-krasnodar-sec4{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar-sec4.jpg)}
+.bal-page .pic--bal-fitnes-krasnodar-sec5{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar-sec5.jpg)}
+.bal-page .pic--bal-fitnes-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-fitnes-krasnodar.jpg)}
+.bal-page .pic--bal-hamam-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-hamam-krasnodar-2.jpg)}
+.bal-page .pic--bal-hamam-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-hamam-krasnodar-3.jpg)}
+.bal-page .pic--bal-hamam-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-hamam-krasnodar-cover.jpg)}
+.bal-page .pic--bal-hamam-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-hamam-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-hamam-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-hamam-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-hamam-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-hamam-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-hamam-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-hamam-krasnodar.jpg)}
+.bal-page .pic--bal-joga-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-joga-krasnodar-2.jpg)}
+.bal-page .pic--bal-joga-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-joga-krasnodar-3.jpg)}
+.bal-page .pic--bal-joga-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-joga-krasnodar-cover.jpg)}
+.bal-page .pic--bal-joga-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-joga-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-joga-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-joga-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-joga-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-joga-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-joga-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-joga-krasnodar.jpg)}
+.bal-page .pic--bal-pilates-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-pilates-krasnodar-2.jpg)}
+.bal-page .pic--bal-pilates-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-pilates-krasnodar-3.jpg)}
+.bal-page .pic--bal-pilates-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-pilates-krasnodar-cover.jpg)}
+.bal-page .pic--bal-pilates-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-pilates-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-pilates-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-pilates-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-pilates-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-pilates-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-pilates-krasnodar-sec4{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-pilates-krasnodar-sec4.jpg)}
+.bal-page .pic--bal-pilates-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-pilates-krasnodar.jpg)}
+.bal-page .pic--bal-sauna-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar-2.jpg)}
+.bal-page .pic--bal-sauna-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar-3.jpg)}
+.bal-page .pic--bal-sauna-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar-cover.jpg)}
+.bal-page .pic--bal-sauna-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-sauna-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-sauna-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-sauna-krasnodar-sec4{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar-sec4.jpg)}
+.bal-page .pic--bal-sauna-krasnodar-sec5{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar-sec5.jpg)}
+.bal-page .pic--bal-sauna-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-sauna-krasnodar.jpg)}
+.bal-page .pic--bal-spa-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-spa-krasnodar-2.jpg)}
+.bal-page .pic--bal-spa-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-spa-krasnodar-3.jpg)}
+.bal-page .pic--bal-spa-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-spa-krasnodar-cover.jpg)}
+.bal-page .pic--bal-spa-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-spa-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-spa-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-spa-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-spa-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-spa-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-spa-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-spa-krasnodar.jpg)}
+.bal-page .pic--bal-trenajernyj-zal-krasnodar-2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar-2.jpg)}
+.bal-page .pic--bal-trenajernyj-zal-krasnodar-3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar-3.jpg)}
+.bal-page .pic--bal-trenajernyj-zal-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar-cover.jpg)}
+.bal-page .pic--bal-trenajernyj-zal-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar-sec1.jpg)}
+.bal-page .pic--bal-trenajernyj-zal-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar-sec2.jpg)}
+.bal-page .pic--bal-trenajernyj-zal-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar-sec3.jpg)}
+.bal-page .pic--bal-trenajernyj-zal-krasnodar-sec4{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar-sec4.jpg)}
+.bal-page .pic--bal-trenajernyj-zal-krasnodar-sec5{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar-sec5.jpg)}
+.bal-page .pic--bal-trenajernyj-zal-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bal-trenajernyj-zal-krasnodar.jpg)}
+.bal-page .pic--bassejn-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bassejn-tuapse-sec1.jpg)}
+.bal-page .pic--bassejn-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bassejn-tuapse-sec2.jpg)}
+.bal-page .pic--bassejn-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bassejn-tuapse-sec3.jpg)}
+.bal-page .pic--bassejn-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/bassejn-tuapse.jpg)}
+.bal-page .pic--chistka-lica-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/chistka-lica-krasnodar-sec1.jpg)}
+.bal-page .pic--chistka-lica-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/chistka-lica-krasnodar-sec2.jpg)}
+.bal-page .pic--chistka-lica-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/chistka-lica-krasnodar-sec3.jpg)}
+.bal-page .pic--chistka-lica-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/chistka-lica-krasnodar.jpg)}
+.bal-page .pic--den-rozhdeniya-rebenka-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-krasnodar-sec1.jpg)}
+.bal-page .pic--den-rozhdeniya-rebenka-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-krasnodar-sec2.jpg)}
+.bal-page .pic--den-rozhdeniya-rebenka-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-krasnodar-sec3.jpg)}
+.bal-page .pic--den-rozhdeniya-rebenka-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-krasnodar.jpg)}
+.bal-page .pic--den-rozhdeniya-rebenka-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-tuapse-sec1.jpg)}
+.bal-page .pic--den-rozhdeniya-rebenka-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-tuapse-sec2.jpg)}
+.bal-page .pic--den-rozhdeniya-rebenka-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-tuapse-sec3.jpg)}
+.bal-page .pic--den-rozhdeniya-rebenka-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/den-rozhdeniya-rebenka-tuapse.jpg)}
+.bal-page .pic--detskij-klub-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-krasnodar-sec1.jpg)}
+.bal-page .pic--detskij-klub-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-krasnodar-sec2.jpg)}
+.bal-page .pic--detskij-klub-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-krasnodar-sec3.jpg)}
+.bal-page .pic--detskij-klub-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-krasnodar.jpg)}
+.bal-page .pic--detskij-klub-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-tuapse-sec1.jpg)}
+.bal-page .pic--detskij-klub-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-tuapse-sec2.jpg)}
+.bal-page .pic--detskij-klub-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-tuapse-sec3.jpg)}
+.bal-page .pic--detskij-klub-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-klub-tuapse.jpg)}
+.bal-page .pic--detskij-lager-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-lager-krasnodar-sec1.jpg)}
+.bal-page .pic--detskij-lager-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-lager-krasnodar-sec2.jpg)}
+.bal-page .pic--detskij-lager-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-lager-krasnodar-sec3.jpg)}
+.bal-page .pic--detskij-lager-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/detskij-lager-krasnodar.jpg)}
+.bal-page .pic--dush-sharko-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/dush-sharko-krasnodar-sec1.jpg)}
+.bal-page .pic--dush-sharko-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/dush-sharko-krasnodar-sec2.jpg)}
+.bal-page .pic--dush-sharko-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/dush-sharko-krasnodar-sec3.jpg)}
+.bal-page .pic--dush-sharko-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/dush-sharko-krasnodar.jpg)}
+.bal-page .pic--edinoborstva-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/edinoborstva-tuapse-sec1.jpg)}
+.bal-page .pic--edinoborstva-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/edinoborstva-tuapse-sec2.jpg)}
+.bal-page .pic--edinoborstva-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/edinoborstva-tuapse-sec3.jpg)}
+.bal-page .pic--edinoborstva-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/edinoborstva-tuapse.jpg)}
+.bal-page .pic--fitnes-dlya-nachinayushchih-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-krasnodar-sec1.jpg)}
+.bal-page .pic--fitnes-dlya-nachinayushchih-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-krasnodar-sec2.jpg)}
+.bal-page .pic--fitnes-dlya-nachinayushchih-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-krasnodar-sec3.jpg)}
+.bal-page .pic--fitnes-dlya-nachinayushchih-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-krasnodar.jpg)}
+.bal-page .pic--fitnes-dlya-nachinayushchih-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-tuapse-sec1.jpg)}
+.bal-page .pic--fitnes-dlya-nachinayushchih-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-tuapse-sec2.jpg)}
+.bal-page .pic--fitnes-dlya-nachinayushchih-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-tuapse-sec3.jpg)}
+.bal-page .pic--fitnes-dlya-nachinayushchih-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-dlya-nachinayushchih-tuapse.jpg)}
+.bal-page .pic--fitnes-klub-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-klub-tuapse-sec1.jpg)}
+.bal-page .pic--fitnes-klub-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-klub-tuapse-sec2.jpg)}
+.bal-page .pic--fitnes-klub-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-klub-tuapse-sec3.jpg)}
+.bal-page .pic--fitnes-klub-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-klub-tuapse.jpg)}
+.bal-page .pic--fitnes-sekcii-dlya-detej-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-sekcii-dlya-detej-krasnodar-sec1.jpg)}
+.bal-page .pic--fitnes-sekcii-dlya-detej-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-sekcii-dlya-detej-krasnodar-sec2.jpg)}
+.bal-page .pic--fitnes-sekcii-dlya-detej-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-sekcii-dlya-detej-krasnodar-sec3.jpg)}
+.bal-page .pic--fitnes-sekcii-dlya-detej-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/fitnes-sekcii-dlya-detej-krasnodar.jpg)}
+.bal-page .pic--funkcionalnyj-trening-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/funkcionalnyj-trening-krasnodar-sec1.jpg)}
+.bal-page .pic--funkcionalnyj-trening-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/funkcionalnyj-trening-krasnodar-sec2.jpg)}
+.bal-page .pic--funkcionalnyj-trening-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/funkcionalnyj-trening-krasnodar-sec3.jpg)}
+.bal-page .pic--funkcionalnyj-trening-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/funkcionalnyj-trening-krasnodar.jpg)}
+.bal-page .pic--grudnichkovoe-plavanie-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/grudnichkovoe-plavanie-krasnodar-sec1.jpg)}
+.bal-page .pic--grudnichkovoe-plavanie-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/grudnichkovoe-plavanie-krasnodar-sec2.jpg)}
+.bal-page .pic--grudnichkovoe-plavanie-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/grudnichkovoe-plavanie-krasnodar-sec3.jpg)}
+.bal-page .pic--grudnichkovoe-plavanie-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/grudnichkovoe-plavanie-krasnodar.jpg)}
+.bal-page .pic--gruppovye-trenirovki-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-krasnodar-sec1.jpg)}
+.bal-page .pic--gruppovye-trenirovki-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-krasnodar-sec2.jpg)}
+.bal-page .pic--gruppovye-trenirovki-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-krasnodar-sec3.jpg)}
+.bal-page .pic--gruppovye-trenirovki-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-krasnodar.jpg)}
+.bal-page .pic--gruppovye-trenirovki-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-tuapse-sec1.jpg)}
+.bal-page .pic--gruppovye-trenirovki-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-tuapse-sec2.jpg)}
+.bal-page .pic--gruppovye-trenirovki-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-tuapse-sec3.jpg)}
+.bal-page .pic--gruppovye-trenirovki-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/gruppovye-trenirovki-tuapse.jpg)}
+.bal-page .pic--igrovaya-komnata-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/igrovaya-komnata-tuapse-sec1.jpg)}
+.bal-page .pic--igrovaya-komnata-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/igrovaya-komnata-tuapse-sec2.jpg)}
+.bal-page .pic--igrovaya-komnata-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/igrovaya-komnata-tuapse-sec3.jpg)}
+.bal-page .pic--igrovaya-komnata-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/igrovaya-komnata-tuapse.jpg)}
+.bal-page .pic--inbody-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/inbody-krasnodar-sec1.jpg)}
+.bal-page .pic--inbody-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/inbody-krasnodar-sec2.jpg)}
+.bal-page .pic--inbody-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/inbody-krasnodar-sec3.jpg)}
+.bal-page .pic--inbody-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/inbody-krasnodar.jpg)}
+.bal-page .pic--kak-vybrat-fitnes-klub-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/kak-vybrat-fitnes-klub-krasnodar-sec1.jpg)}
+.bal-page .pic--kak-vybrat-fitnes-klub-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/kak-vybrat-fitnes-klub-krasnodar-sec2.jpg)}
+.bal-page .pic--kak-vybrat-fitnes-klub-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/kak-vybrat-fitnes-klub-krasnodar-sec3.jpg)}
+.bal-page .pic--kak-vybrat-fitnes-klub-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/kak-vybrat-fitnes-klub-krasnodar.jpg)}
+.bal-page .pic--korporativnyj-fitnes-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/korporativnyj-fitnes-krasnodar-sec1.jpg)}
+.bal-page .pic--korporativnyj-fitnes-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/korporativnyj-fitnes-krasnodar-sec2.jpg)}
+.bal-page .pic--korporativnyj-fitnes-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/korporativnyj-fitnes-krasnodar-sec3.jpg)}
+.bal-page .pic--korporativnyj-fitnes-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/korporativnyj-fitnes-krasnodar.jpg)}
+.bal-page .pic--krossfit-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/krossfit-krasnodar-cover.jpg)}
+.bal-page .pic--krossfit-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/krossfit-krasnodar-sec1.jpg)}
+.bal-page .pic--krossfit-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/krossfit-krasnodar-sec2.jpg)}
+.bal-page .pic--krossfit-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/krossfit-krasnodar-sec3.jpg)}
+.bal-page .pic--krossfit-krasnodar-sec4{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/krossfit-krasnodar-sec4.jpg)}
+.bal-page .pic--krossfit-krasnodar-sec5{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/krossfit-krasnodar-sec5.jpg)}
+.bal-page .pic--krossfit-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/krossfit-krasnodar.jpg)}
+.bal-page .pic--lazernaya-epilyaciya-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/lazernaya-epilyaciya-krasnodar-sec1.jpg)}
+.bal-page .pic--lazernaya-epilyaciya-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/lazernaya-epilyaciya-krasnodar-sec2.jpg)}
+.bal-page .pic--lazernaya-epilyaciya-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/lazernaya-epilyaciya-krasnodar-sec3.jpg)}
+.bal-page .pic--lazernaya-epilyaciya-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/lazernaya-epilyaciya-krasnodar.jpg)}
+.bal-page .pic--manikyur-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/manikyur-krasnodar-sec1.jpg)}
+.bal-page .pic--manikyur-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/manikyur-krasnodar-sec2.jpg)}
+.bal-page .pic--manikyur-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/manikyur-krasnodar-sec3.jpg)}
+.bal-page .pic--manikyur-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/manikyur-krasnodar.jpg)}
+.bal-page .pic--massaj-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massaj-krasnodar-sec1.jpg)}
+.bal-page .pic--massaj-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massaj-krasnodar-sec2.jpg)}
+.bal-page .pic--massaj-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massaj-krasnodar-sec3.jpg)}
+.bal-page .pic--massaj-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massaj-krasnodar.jpg)}
+.bal-page .pic--massazh-lica-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massazh-lica-krasnodar-sec1.jpg)}
+.bal-page .pic--massazh-lica-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massazh-lica-krasnodar-sec2.jpg)}
+.bal-page .pic--massazh-lica-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massazh-lica-krasnodar-sec3.jpg)}
+.bal-page .pic--massazh-lica-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/massazh-lica-krasnodar.jpg)}
+.bal-page .pic--mini-sad-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/mini-sad-krasnodar-sec1.jpg)}
+.bal-page .pic--mini-sad-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/mini-sad-krasnodar-sec2.jpg)}
+.bal-page .pic--mini-sad-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/mini-sad-krasnodar-sec3.jpg)}
+.bal-page .pic--mini-sad-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/mini-sad-krasnodar.jpg)}
+.bal-page .pic--obuchenie-plavaniyu-vzroslyh-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/obuchenie-plavaniyu-vzroslyh-krasnodar-sec1.jpg)}
+.bal-page .pic--obuchenie-plavaniyu-vzroslyh-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/obuchenie-plavaniyu-vzroslyh-krasnodar-sec2.jpg)}
+.bal-page .pic--obuchenie-plavaniyu-vzroslyh-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/obuchenie-plavaniyu-vzroslyh-krasnodar-sec3.jpg)}
+.bal-page .pic--obuchenie-plavaniyu-vzroslyh-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/obuchenie-plavaniyu-vzroslyh-krasnodar.jpg)}
+.bal-page .pic--pedikyur-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pedikyur-krasnodar-sec1.jpg)}
+.bal-page .pic--pedikyur-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pedikyur-krasnodar-sec2.jpg)}
+.bal-page .pic--pedikyur-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pedikyur-krasnodar-sec3.jpg)}
+.bal-page .pic--pedikyur-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pedikyur-krasnodar.jpg)}
+.bal-page .pic--personalnyj-trener-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-krasnodar-sec1.jpg)}
+.bal-page .pic--personalnyj-trener-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-krasnodar-sec2.jpg)}
+.bal-page .pic--personalnyj-trener-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-krasnodar-sec3.jpg)}
+.bal-page .pic--personalnyj-trener-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-krasnodar.jpg)}
+.bal-page .pic--personalnyj-trener-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-tuapse-sec1.jpg)}
+.bal-page .pic--personalnyj-trener-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-tuapse-sec2.jpg)}
+.bal-page .pic--personalnyj-trener-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-tuapse-sec3.jpg)}
+.bal-page .pic--personalnyj-trener-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/personalnyj-trener-tuapse.jpg)}
+.bal-page .pic--pilates-na-reformere-krasnodar-cover{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-na-reformere-krasnodar-cover.jpg)}
+.bal-page .pic--pilates-na-reformere-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-na-reformere-krasnodar-sec1.jpg)}
+.bal-page .pic--pilates-na-reformere-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-na-reformere-krasnodar-sec2.jpg)}
+.bal-page .pic--pilates-na-reformere-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-na-reformere-krasnodar-sec3.jpg)}
+.bal-page .pic--pilates-na-reformere-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-na-reformere-krasnodar.jpg)}
+.bal-page .pic--pilates-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-tuapse-sec1.jpg)}
+.bal-page .pic--pilates-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-tuapse-sec2.jpg)}
+.bal-page .pic--pilates-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-tuapse-sec3.jpg)}
+.bal-page .pic--pilates-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/pilates-tuapse.jpg)}
+.bal-page .pic--plavanie-dla-detej-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/plavanie-dla-detej-krasnodar-sec1.jpg)}
+.bal-page .pic--plavanie-dla-detej-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/plavanie-dla-detej-krasnodar-sec2.jpg)}
+.bal-page .pic--plavanie-dla-detej-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/plavanie-dla-detej-krasnodar-sec3.jpg)}
+.bal-page .pic--plavanie-dla-detej-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/plavanie-dla-detej-krasnodar.jpg)}
+.bal-page .pic--podgotovka-k-shkole-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/podgotovka-k-shkole-krasnodar-sec1.jpg)}
+.bal-page .pic--podgotovka-k-shkole-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/podgotovka-k-shkole-krasnodar-sec2.jpg)}
+.bal-page .pic--podgotovka-k-shkole-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/podgotovka-k-shkole-krasnodar-sec3.jpg)}
+.bal-page .pic--podgotovka-k-shkole-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/podgotovka-k-shkole-krasnodar.jpg)}
+.bal-page .pic--prodlenka-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/prodlenka-krasnodar-sec1.jpg)}
+.bal-page .pic--prodlenka-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/prodlenka-krasnodar-sec2.jpg)}
+.bal-page .pic--prodlenka-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/prodlenka-krasnodar-sec3.jpg)}
+.bal-page .pic--prodlenka-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/prodlenka-krasnodar.jpg)}
+.bal-page .pic--sajkl-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sajkl-tuapse-sec1.jpg)}
+.bal-page .pic--sajkl-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sajkl-tuapse-sec2.jpg)}
+.bal-page .pic--sajkl-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sajkl-tuapse-sec3.jpg)}
+.bal-page .pic--sajkl-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sajkl-tuapse.jpg)}
+.bal-page .pic--sauna-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sauna-tuapse-sec1.jpg)}
+.bal-page .pic--sauna-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sauna-tuapse-sec2.jpg)}
+.bal-page .pic--sauna-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sauna-tuapse-sec3.jpg)}
+.bal-page .pic--sauna-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sauna-tuapse.jpg)}
+.bal-page .pic--semejnyj-fitnes-klub-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/semejnyj-fitnes-klub-tuapse-sec1.jpg)}
+.bal-page .pic--semejnyj-fitnes-klub-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/semejnyj-fitnes-klub-tuapse-sec2.jpg)}
+.bal-page .pic--semejnyj-fitnes-klub-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/semejnyj-fitnes-klub-tuapse-sec3.jpg)}
+.bal-page .pic--semejnyj-fitnes-klub-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/semejnyj-fitnes-klub-tuapse.jpg)}
+.bal-page .pic--shkola-plavaniya-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/shkola-plavaniya-tuapse-sec1.jpg)}
+.bal-page .pic--shkola-plavaniya-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/shkola-plavaniya-tuapse-sec2.jpg)}
+.bal-page .pic--shkola-plavaniya-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/shkola-plavaniya-tuapse-sec3.jpg)}
+.bal-page .pic--shkola-plavaniya-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/shkola-plavaniya-tuapse.jpg)}
+.bal-page .pic--solyanaya-komnata-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyanaya-komnata-krasnodar-sec1.jpg)}
+.bal-page .pic--solyanaya-komnata-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyanaya-komnata-krasnodar-sec2.jpg)}
+.bal-page .pic--solyanaya-komnata-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyanaya-komnata-krasnodar-sec3.jpg)}
+.bal-page .pic--solyanaya-komnata-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyanaya-komnata-krasnodar.jpg)}
+.bal-page .pic--solyarij-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyarij-krasnodar-sec1.jpg)}
+.bal-page .pic--solyarij-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyarij-krasnodar-sec2.jpg)}
+.bal-page .pic--solyarij-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyarij-krasnodar-sec3.jpg)}
+.bal-page .pic--solyarij-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/solyarij-krasnodar.jpg)}
+.bal-page .pic--spa-programmy-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/spa-programmy-krasnodar-sec1.jpg)}
+.bal-page .pic--spa-programmy-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/spa-programmy-krasnodar-sec2.jpg)}
+.bal-page .pic--spa-programmy-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/spa-programmy-krasnodar-sec3.jpg)}
+.bal-page .pic--spa-programmy-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/spa-programmy-krasnodar.jpg)}
+.bal-page .pic--sportivnyj-massazh-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sportivnyj-massazh-krasnodar-sec1.jpg)}
+.bal-page .pic--sportivnyj-massazh-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sportivnyj-massazh-krasnodar-sec2.jpg)}
+.bal-page .pic--sportivnyj-massazh-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sportivnyj-massazh-krasnodar-sec3.jpg)}
+.bal-page .pic--sportivnyj-massazh-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/sportivnyj-massazh-krasnodar.jpg)}
+.bal-page .pic--stretcing-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/stretcing-krasnodar-sec1.jpg)}
+.bal-page .pic--stretcing-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/stretcing-krasnodar-sec2.jpg)}
+.bal-page .pic--stretcing-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/stretcing-krasnodar-sec3.jpg)}
+.bal-page .pic--stretcing-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/stretcing-krasnodar.jpg)}
+.bal-page .pic--tancevalnaya-aerobika-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancevalnaya-aerobika-krasnodar-sec1.jpg)}
+.bal-page .pic--tancevalnaya-aerobika-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancevalnaya-aerobika-krasnodar-sec2.jpg)}
+.bal-page .pic--tancevalnaya-aerobika-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancevalnaya-aerobika-krasnodar-sec3.jpg)}
+.bal-page .pic--tancevalnaya-aerobika-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancevalnaya-aerobika-krasnodar.jpg)}
+.bal-page .pic--tancy-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancy-tuapse-sec1.jpg)}
+.bal-page .pic--tancy-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancy-tuapse-sec2.jpg)}
+.bal-page .pic--tancy-tuapse-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancy-tuapse-sec3.jpg)}
+.bal-page .pic--tancy-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/tancy-tuapse.jpg)}
+.bal-page .pic--trenajernyj-zal-tuapse-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/trenajernyj-zal-tuapse-sec1.jpg)}
+.bal-page .pic--trenajernyj-zal-tuapse-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/trenajernyj-zal-tuapse-sec2.jpg)}
+.bal-page .pic--trenajernyj-zal-tuapse{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/trenajernyj-zal-tuapse.jpg)}
+.bal-page .pic--trener-po-plavaniyu-krasnodar-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/trener-po-plavaniyu-krasnodar-sec1.jpg)}
+.bal-page .pic--trener-po-plavaniyu-krasnodar-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/trener-po-plavaniyu-krasnodar-sec2.jpg)}
+.bal-page .pic--trener-po-plavaniyu-krasnodar-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/trener-po-plavaniyu-krasnodar-sec3.jpg)}
+.bal-page .pic--trener-po-plavaniyu-krasnodar{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/trener-po-plavaniyu-krasnodar.jpg)}
+.bal-page .pic--zamorozka-klubnoj-karty-sec1{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/zamorozka-klubnoj-karty-sec1.jpg)}
+.bal-page .pic--zamorozka-klubnoj-karty-sec2{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/zamorozka-klubnoj-karty-sec2.jpg)}
+.bal-page .pic--zamorozka-klubnoj-karty-sec3{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/zamorozka-klubnoj-karty-sec3.jpg)}
+.bal-page .pic--zamorozka-klubnoj-karty{background-image:url(https://api.xn--80aegbamtybgbg2atc.xn--p1ai/media/balance-fit/zamorozka-klubnoj-karty.jpg)}
+
+/* ── страница блога: чужая шапка и рекламный виджет ── */
+#allrecords[data-tilda-page-alias="blog"] #rec606196481,
+#allrecords[data-tilda-page-alias="blog"] #rec631398976,
+#allrecords[data-tilda-page-alias="blog"] #rec631395327,
+#allrecords[data-tilda-page-alias="blog"] #rec781459049,
+#allrecords[data-tilda-page-alias="blog"] #rec2338917011 { display: none !important; }
+
+/* ── лента блога: карточки по одной сетке ── */
+#allrecords .t-cms__card .t-cms__card__atom.t-name{
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+  overflow:hidden;min-height:calc(3 * 1.35em)}
+#allrecords .t-cms__card{align-content:start}
+
+/* ── статьи ноября 2026 (balance-stati): картинки с Тильды ── */
+.bal-page .hero__cover--limfodrenazhnyj-massazh-krasnodar{background-image:url(https://static.tildacdn.com/tila3238-3465-4237-a134-313435393834/limfodrenazhnyj-mass.jpg)}
+.bal-page .pic--limfodrenazhnyj-massazh-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3631-3537-4030-b638-636266313565/limfodrenazhnyj-mass.jpg)}
+.bal-page .pic--limfodrenazhnyj-massazh-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6236-6361-4232-b136-396137613865/limfodrenazhnyj-mass.jpg)}
+.bal-page .pic--limfodrenazhnyj-massazh-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila6332-6135-4233-b635-626637663262/limfodrenazhnyj-mass.jpg)}
+.bal-page .hero__cover--kosmetolog-krasnodar{background-image:url(https://static.tildacdn.com/tila3763-3738-4563-b134-343930373566/kosmetolog-krasnodar.jpg)}
+.bal-page .pic--kosmetolog-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3730-3861-4162-b466-663638646537/kosmetolog-krasnodar.jpg)}
+.bal-page .pic--kosmetolog-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3065-3361-4233-b464-346339356432/kosmetolog-krasnodar.jpg)}
+.bal-page .pic--kosmetolog-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3864-6530-4639-b035-616339343430/kosmetolog-krasnodar.jpg)}
+.bal-page .hero__cover--rastyazhka-tuapse{background-image:url(https://static.tildacdn.com/tila3765-3865-4334-b831-313361313838/rastyazhka-tuapse-0.jpg)}
+.bal-page .pic--rastyazhka-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila3937-3633-4163-a466-353462366565/rastyazhka-tuapse-1.jpg)}
+.bal-page .pic--rastyazhka-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila3866-3636-4661-b330-336332316662/rastyazhka-tuapse-2.jpg)}
+.bal-page .pic--rastyazhka-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila6561-6631-4634-a337-633430613166/rastyazhka-tuapse-3.jpg)}
+.bal-page .hero__cover--silovye-trenirovki-krasnodar{background-image:url(https://static.tildacdn.com/tila6534-3538-4933-b636-653733393565/silovye-trenirovki-k.jpg)}
+.bal-page .pic--silovye-trenirovki-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila6562-3761-4636-b265-613339306665/silovye-trenirovki-k.jpg)}
+.bal-page .pic--silovye-trenirovki-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6638-3863-4135-b834-393632623261/silovye-trenirovki-k.jpg)}
+.bal-page .pic--silovye-trenirovki-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila6466-6265-4439-a635-306632613539/silovye-trenirovki-k.jpg)}
+.bal-page .hero__cover--fitnes-ili-trenazhernyj-zal-krasnodar{background-image:url(https://static.tildacdn.com/tila6165-6135-4765-a364-653631353562/fitnes-ili-trenazher.jpg)}
+.bal-page .pic--fitnes-ili-trenazhernyj-zal-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3239-6339-4965-a335-643439623037/fitnes-ili-trenazher.jpg)}
+.bal-page .pic--fitnes-ili-trenazhernyj-zal-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3436-3237-4662-b535-353434313937/fitnes-ili-trenazher.jpg)}
+.bal-page .pic--fitnes-ili-trenazhernyj-zal-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3362-3933-4530-a566-356132663036/fitnes-ili-trenazher.jpg)}
+.bal-page .hero__cover--hamam-tuapse{background-image:url(https://static.tildacdn.com/tila3164-6465-4431-b139-316632663362/hamam-tuapse-0.jpg)}
+.bal-page .pic--hamam-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila3632-3334-4338-b630-613530353762/hamam-tuapse-1.jpg)}
+.bal-page .pic--hamam-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila3865-3035-4539-b536-613438663436/hamam-tuapse-2.jpg)}
+.bal-page .pic--hamam-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila3231-6162-4233-b339-396533393166/hamam-tuapse-3.jpg)}
+.bal-page .hero__cover--trenazhernyj-zal-dlya-zhenshchin-krasnodar{background-image:url(https://static.tildacdn.com/tila6338-3432-4035-b866-366132336238/trenazhernyj-zal-dly.jpg)}
+.bal-page .pic--trenazhernyj-zal-dlya-zhenshchin-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila6366-6563-4037-a538-666633373838/trenazhernyj-zal-dly.jpg)}
+.bal-page .pic--trenazhernyj-zal-dlya-zhenshchin-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6163-6538-4965-b136-356361316135/trenazhernyj-zal-dly.jpg)}
+.bal-page .pic--trenazhernyj-zal-dlya-zhenshchin-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3530-3961-4933-b863-636562343839/trenazhernyj-zal-dly.jpg)}
+.bal-page .hero__cover--kak-vybrat-personalnogo-trenera-krasnodar{background-image:url(https://static.tildacdn.com/tila3830-3933-4133-b232-386161663536/kak-vybrat-personaln.jpg)}
+.bal-page .pic--kak-vybrat-personalnogo-trenera-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila6438-3136-4661-b964-303932343735/kak-vybrat-personaln.jpg)}
+.bal-page .pic--kak-vybrat-personalnogo-trenera-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3963-3836-4237-a366-393861376362/kak-vybrat-personaln.jpg)}
+.bal-page .pic--kak-vybrat-personalnogo-trenera-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3934-3364-4632-b236-356431663834/kak-vybrat-personaln.jpg)}
+.bal-page .hero__cover--kak-pohudet-v-trenazhernom-zale-tuapse{background-image:url(https://static.tildacdn.com/tila6564-3331-4730-b965-623530383031/kak-pohudet-v-trenaz.jpg)}
+.bal-page .pic--kak-pohudet-v-trenazhernom-zale-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila6632-3634-4435-b632-313966653765/kak-pohudet-v-trenaz.jpg)}
+.bal-page .pic--kak-pohudet-v-trenazhernom-zale-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila3034-3830-4132-a665-323439383232/kak-pohudet-v-trenaz.jpg)}
+.bal-page .pic--kak-pohudet-v-trenazhernom-zale-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila3632-6136-4666-b135-653064336239/kak-pohudet-v-trenaz.jpg)}
+.bal-page .hero__cover--infrakrasnaya-sauna-krasnodar{background-image:url(https://static.tildacdn.com/tila6335-6133-4465-a165-636361643166/infrakrasnaya-sauna-.jpg)}
+.bal-page .pic--infrakrasnaya-sauna-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila6536-6237-4432-b338-396235323132/infrakrasnaya-sauna-.jpg)}
+.bal-page .pic--infrakrasnaya-sauna-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6434-3035-4631-a437-376465356433/infrakrasnaya-sauna-.jpg)}
+.bal-page .pic--infrakrasnaya-sauna-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3438-3532-4866-a565-343437616161/infrakrasnaya-sauna-.jpg)}
+.bal-page .hero__cover--fitnes-klub-s-bassejnom-krasnodar{background-image:url(https://static.tildacdn.com/tila6339-3164-4238-a437-663137666662/fitnes-klub-s-bassej.jpg)}
+.bal-page .pic--fitnes-klub-s-bassejnom-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3964-6264-4237-a533-333665376231/fitnes-klub-s-bassej.jpg)}
+.bal-page .pic--fitnes-klub-s-bassejnom-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3965-3832-4337-a232-646466356531/fitnes-klub-s-bassej.jpg)}
+.bal-page .pic--fitnes-klub-s-bassejnom-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila6238-6232-4861-b232-333464376363/fitnes-klub-s-bassej.jpg)}
+.bal-page .hero__cover--skolko-raz-v-nedelyu-hodit-v-zal-tuapse{background-image:url(https://static.tildacdn.com/tila6230-6464-4536-b936-306138383935/skolko-raz-v-nedelyu.jpg)}
+.bal-page .pic--skolko-raz-v-nedelyu-hodit-v-zal-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila3161-3139-4035-b265-313839613034/skolko-raz-v-nedelyu.jpg)}
+.bal-page .pic--skolko-raz-v-nedelyu-hodit-v-zal-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila3839-3565-4138-b132-393131663036/skolko-raz-v-nedelyu.jpg)}
+.bal-page .pic--skolko-raz-v-nedelyu-hodit-v-zal-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila3932-6163-4164-b733-363364616664/skolko-raz-v-nedelyu.jpg)}
+.bal-page .hero__cover--pitanie-do-i-posle-trenirovki-krasnodar{background-image:url(https://static.tildacdn.com/tila3866-6334-4637-b831-653732383134/pitanie-do-i-posle-t.jpg)}
+.bal-page .pic--pitanie-do-i-posle-trenirovki-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3565-6137-4162-b532-366366383933/pitanie-do-i-posle-t.jpg)}
+.bal-page .pic--pitanie-do-i-posle-trenirovki-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3535-3966-4566-a630-646239656233/pitanie-do-i-posle-t.jpg)}
+.bal-page .pic--pitanie-do-i-posle-trenirovki-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila6635-3237-4237-b965-373239333033/pitanie-do-i-posle-t.jpg)}
+.bal-page .hero__cover--chto-vzyat-v-bassejn-krasnodar{background-image:url(https://static.tildacdn.com/tila3463-3236-4830-b538-613164343636/chto-vzyat-v-bassejn.jpg)}
+.bal-page .pic--chto-vzyat-v-bassejn-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila6665-6234-4235-a465-383663363939/chto-vzyat-v-bassejn.jpg)}
+.bal-page .pic--chto-vzyat-v-bassejn-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6436-6562-4333-b338-643539323965/chto-vzyat-v-bassejn.jpg)}
+.bal-page .pic--chto-vzyat-v-bassejn-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3335-3732-4534-b661-336464616538/chto-vzyat-v-bassejn.jpg)}
+.bal-page .hero__cover--massazh-spiny-krasnodar{background-image:url(https://static.tildacdn.com/tila6461-3131-4366-b635-663631303839/massazh-spiny-krasno.jpg)}
+.bal-page .pic--massazh-spiny-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3338-3531-4463-b233-316131636532/massazh-spiny-krasno.jpg)}
+.bal-page .pic--massazh-spiny-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3733-3763-4063-b430-613433346161/massazh-spiny-krasno.jpg)}
+.bal-page .pic--massazh-spiny-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3162-3634-4434-b262-353839396536/massazh-spiny-krasno.jpg)}
+.bal-page .hero__cover--trenirovki-posle-40-krasnodar{background-image:url(https://static.tildacdn.com/tila6561-3766-4235-b835-646331626330/trenirovki-posle-40-.jpg)}
+.bal-page .pic--trenirovki-posle-40-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3264-6262-4966-b665-393032636536/trenirovki-posle-40-.jpg)}
+.bal-page .pic--trenirovki-posle-40-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6236-6336-4562-b438-383736343231/trenirovki-posle-40-.jpg)}
+.bal-page .pic--trenirovki-posle-40-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila6639-6432-4866-b535-646665333338/trenirovki-posle-40-.jpg)}
+.bal-page .hero__cover--kak-nachat-hodit-v-trenazhernyj-zal-krasnodar{background-image:url(https://static.tildacdn.com/tila3031-3532-4431-a531-613539316464/kak-nachat-hodit-v-t.jpg)}
+.bal-page .pic--kak-nachat-hodit-v-trenazhernyj-zal-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila6161-3165-4736-b864-626664343031/kak-nachat-hodit-v-t.jpg)}
+.bal-page .pic--kak-nachat-hodit-v-trenazhernyj-zal-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6433-3466-4132-b030-303565333266/kak-nachat-hodit-v-t.jpg)}
+.bal-page .pic--kak-nachat-hodit-v-trenazhernyj-zal-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila6261-3830-4663-b833-613834663034/kak-nachat-hodit-v-t.jpg)}
+.bal-page .hero__cover--sauna-posle-trenirovki-krasnodar{background-image:url(https://static.tildacdn.com/tila3333-6361-4130-a465-643533353033/sauna-posle-trenirov.jpg)}
+.bal-page .pic--sauna-posle-trenirovki-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3565-3630-4464-a662-663361393334/sauna-posle-trenirov.jpg)}
+.bal-page .pic--sauna-posle-trenirovki-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6237-3131-4439-b664-396264363237/sauna-posle-trenirov.jpg)}
+.bal-page .pic--sauna-posle-trenirovki-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila6335-3566-4731-a162-383135333338/sauna-posle-trenirov.jpg)}
+.bal-page .hero__cover--chto-vzyat-v-fitnes-klub-tuapse{background-image:url(https://static.tildacdn.com/tila3630-3964-4162-b437-363766393866/chto-vzyat-v-fitnes-.jpg)}
+.bal-page .pic--chto-vzyat-v-fitnes-klub-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila3163-6632-4936-b030-326663356265/chto-vzyat-v-fitnes-.jpg)}
+.bal-page .pic--chto-vzyat-v-fitnes-klub-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila3363-6536-4434-b034-326134313439/chto-vzyat-v-fitnes-.jpg)}
+.bal-page .pic--chto-vzyat-v-fitnes-klub-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila3536-6465-4635-a433-316662393163/chto-vzyat-v-fitnes-.jpg)}
+.bal-page .hero__cover--plavanie-dlya-pohudeniya-tuapse{background-image:url(https://static.tildacdn.com/tila3836-6238-4666-a134-323038643030/plavanie-dlya-pohude.jpg)}
+.bal-page .pic--plavanie-dlya-pohudeniya-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila6530-3735-4264-b630-363062373363/plavanie-dlya-pohude.jpg)}
+.bal-page .pic--plavanie-dlya-pohudeniya-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila6565-6461-4464-a332-636561636634/plavanie-dlya-pohude.jpg)}
+.bal-page .pic--plavanie-dlya-pohudeniya-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila3334-6339-4164-b037-666630626230/plavanie-dlya-pohude.jpg)}
+.bal-page .hero__cover--kak-ne-brosit-trenirovki-tuapse{background-image:url(https://static.tildacdn.com/tila3537-3962-4531-a235-613463633233/kak-ne-brosit-trenir.jpg)}
+.bal-page .pic--kak-ne-brosit-trenirovki-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila6130-6163-4631-a266-363230393036/kak-ne-brosit-trenir.jpg)}
+.bal-page .pic--kak-ne-brosit-trenirovki-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila6335-6666-4363-b665-363865353435/kak-ne-brosit-trenir.jpg)}
+.bal-page .pic--kak-ne-brosit-trenirovki-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila6135-3263-4333-b634-333263313432/kak-ne-brosit-trenir.jpg)}
+.bal-page .hero__cover--kak-ubrat-zhivot-krasnodar{background-image:url(https://static.tildacdn.com/tila3330-3963-4135-b534-306434343731/kak-ubrat-zhivot-kra.jpg)}
+.bal-page .pic--kak-ubrat-zhivot-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3938-3831-4636-a231-396663663063/kak-ubrat-zhivot-kra.jpg)}
+.bal-page .pic--kak-ubrat-zhivot-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3939-3438-4261-b463-613662303065/kak-ubrat-zhivot-kra.jpg)}
+.bal-page .pic--kak-ubrat-zhivot-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila6564-3035-4237-a566-336163613664/kak-ubrat-zhivot-kra.jpg)}
+.bal-page .hero__cover--deficit-kalorij-krasnodar{background-image:url(https://static.tildacdn.com/tila6631-6636-4536-b937-373634626530/deficit-kalorij-kras.jpg)}
+.bal-page .pic--deficit-kalorij-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3732-3136-4137-a364-306563303934/deficit-kalorij-kras.jpg)}
+.bal-page .pic--deficit-kalorij-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6531-3331-4563-a334-333134653733/deficit-kalorij-kras.jpg)}
+.bal-page .pic--deficit-kalorij-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3530-3432-4061-b262-306130306162/deficit-kalorij-kras.jpg)}
+.bal-page .hero__cover--skolko-belka-v-den-krasnodar{background-image:url(https://static.tildacdn.com/tila3966-3834-4665-a666-626361343633/skolko-belka-v-den-k.jpg)}
+.bal-page .pic--skolko-belka-v-den-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila6662-3638-4933-b866-616565333233/skolko-belka-v-den-k.jpg)}
+.bal-page .pic--skolko-belka-v-den-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3838-6166-4435-b333-616361626632/skolko-belka-v-den-k.jpg)}
+.bal-page .pic--skolko-belka-v-den-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila6439-3334-4038-b037-613062306636/skolko-belka-v-den-k.jpg)}
+.bal-page .hero__cover--rasslablyayushchij-massazh-krasnodar{background-image:url(https://static.tildacdn.com/tila6365-6236-4263-b966-316132396162/rasslablyayushchij-m.jpg)}
+.bal-page .pic--rasslablyayushchij-massazh-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3036-6635-4961-b563-373239646665/rasslablyayushchij-m.jpg)}
+.bal-page .pic--rasslablyayushchij-massazh-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6338-6161-4935-a462-363866666534/rasslablyayushchij-m.jpg)}
+.bal-page .pic--rasslablyayushchij-massazh-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3539-3233-4831-b165-633463656561/rasslablyayushchij-m.jpg)}
+.bal-page .hero__cover--detskij-bassejn-krasnodar{background-image:url(https://static.tildacdn.com/tila6462-3239-4138-b563-383164303137/detskij-bassejn-kras.jpg)}
+.bal-page .pic--detskij-bassejn-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3133-6638-4637-b762-613935346630/detskij-bassejn-kras.jpg)}
+.bal-page .pic--detskij-bassejn-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3433-3336-4163-b261-303332613332/detskij-bassejn-kras.jpg)}
+.bal-page .pic--detskij-bassejn-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3036-6635-4961-b563-373239646665/rasslablyayushchij-m.jpg)}
+.bal-page .hero__cover--manikyur-na-korotkie-nogti-krasnodar{background-image:url(https://static.tildacdn.com/tila6361-3135-4430-b766-396162393765/manikyur-na-korotkie.jpg)}
+.bal-page .pic--manikyur-na-korotkie-nogti-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3930-3732-4232-b639-313733373262/manikyur-na-korotkie.jpg)}
+.bal-page .pic--manikyur-na-korotkie-nogti-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila6338-6161-4935-a462-363866666534/rasslablyayushchij-m.jpg)}
+.bal-page .pic--manikyur-na-korotkie-nogti-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3539-3233-4831-b165-633463656561/rasslablyayushchij-m.jpg)}
+.bal-page .hero__cover--mekhanicheskaya-chistka-lica-krasnodar{background-image:url(https://static.tildacdn.com/tila6665-3137-4135-a663-643165306430/mekhanicheskaya-chis.jpg)}
+.bal-page .pic--mekhanicheskaya-chistka-lica-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3036-6635-4961-b563-373239646665/rasslablyayushchij-m.jpg)}
+.bal-page .pic--mekhanicheskaya-chistka-lica-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3930-3732-4232-b639-313733373262/manikyur-na-korotkie.jpg)}
+.bal-page .pic--mekhanicheskaya-chistka-lica-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3539-3233-4831-b165-633463656561/rasslablyayushchij-m.jpg)}
+.bal-page .hero__cover--uprazhneniya-na-ruki-tuapse{background-image:url(https://static.tildacdn.com/tila3533-6435-4631-a131-626533626639/uprazhneniya-na-ruki.jpg)}
+.bal-page .pic--uprazhneniya-na-ruki-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila3261-3764-4162-b637-383731366435/uprazhneniya-na-ruki.jpg)}
+.bal-page .pic--uprazhneniya-na-ruki-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila3034-3830-4132-a665-323439383232/kak-pohudet-v-trenaz.jpg)}
+.bal-page .pic--uprazhneniya-na-ruki-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila3335-3431-4766-a462-623430613963/uprazhneniya-na-ruki.jpg)}
+.bal-page .hero__cover--uprazhneniya-dlya-shei-tuapse{background-image:url(https://static.tildacdn.com/tila3338-3236-4364-a238-373063376536/uprazhneniya-dlya-sh.jpg)}
+.bal-page .pic--uprazhneniya-dlya-shei-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila3865-3035-4539-b536-613438663436/hamam-tuapse-2.jpg)}
+.bal-page .pic--uprazhneniya-dlya-shei-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila3866-3636-4661-b330-336332316662/rastyazhka-tuapse-2.jpg)}
+.bal-page .pic--uprazhneniya-dlya-shei-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila3039-3962-4239-b361-323238393861/uprazhneniya-dlya-sh.jpg)}
+.bal-page .hero__cover--giperekstenziya-tuapse{background-image:url(https://static.tildacdn.com/tila6236-6639-4865-b832-633338626565/giperekstenziya-tuap.jpg)}
+.bal-page .pic--giperekstenziya-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila3363-6131-4635-a561-666337383038/giperekstenziya-tuap.jpg)}
+.bal-page .pic--giperekstenziya-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila3932-6163-4164-b733-363364616664/skolko-raz-v-nedelyu.jpg)}
+.bal-page .pic--giperekstenziya-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila3236-3232-4835-b837-343431333865/giperekstenziya-tuap.jpg)}
+.bal-page .hero__cover--uprazhneniya-na-plechi-tuapse{background-image:url(https://static.tildacdn.com/tila3536-3362-4463-b165-323935646639/uprazhneniya-na-plec.jpg)}
+.bal-page .pic--uprazhneniya-na-plechi-tuapse-sec1{background-image:url(https://static.tildacdn.com/tila3533-6537-4461-b664-623235623339/uprazhneniya-na-plec.jpg)}
+.bal-page .pic--uprazhneniya-na-plechi-tuapse-sec2{background-image:url(https://static.tildacdn.com/tila3934-6332-4532-b366-396531333962/uprazhneniya-na-plec.jpg)}
+.bal-page .pic--uprazhneniya-na-plechi-tuapse-sec3{background-image:url(https://static.tildacdn.com/tila6135-3263-4333-b634-333263313432/kak-ne-brosit-trenir.jpg)}
+.bal-page .hero__cover--anticellyulitnyj-massazh-krasnodar{background-image:url(https://static.tildacdn.com/tila3739-3866-4636-b034-313333316564/anticellyulitnyj-mas.jpg)}
+.bal-page .pic--anticellyulitnyj-massazh-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila6364-3062-4430-a262-313262373837/anticellyulitnyj-mas.jpg)}
+.bal-page .pic--anticellyulitnyj-massazh-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3630-6663-4464-a635-343038353536/anticellyulitnyj-mas.jpg)}
+.bal-page .pic--anticellyulitnyj-massazh-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3837-3438-4736-a636-303562376538/anticellyulitnyj-mas.jpg)}
+.bal-page .hero__cover--bolyat-koleni-posle-trenirovki-krasnodar{background-image:url(https://static.tildacdn.com/tila6639-3939-4663-b162-303561373561/bolyat-koleni-posle-.jpg)}
+.bal-page .pic--bolyat-koleni-posle-trenirovki-krasnodar-sec1{background-image:url(https://static.tildacdn.com/tila3336-6235-4133-a166-623765386530/bolyat-koleni-posle-.jpg)}
+.bal-page .pic--bolyat-koleni-posle-trenirovki-krasnodar-sec2{background-image:url(https://static.tildacdn.com/tila3561-3164-4437-a135-663161653832/bolyat-koleni-posle-.jpg)}
+.bal-page .pic--bolyat-koleni-posle-trenirovki-krasnodar-sec3{background-image:url(https://static.tildacdn.com/tila3632-3631-4561-b631-393638343336/bolyat-koleni-posle-.jpg)}
